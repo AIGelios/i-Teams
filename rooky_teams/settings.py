@@ -45,6 +45,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_bootstrap5',
     'rooky_teams',
+    'rooky_teams.players',
+    'rooky_teams.roles',
+    'rooky_teams.skills',
+    'rooky_teams.lineups',
 ]
 
 MIDDLEWARE = [
