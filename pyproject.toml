@@ -4,6 +4,7 @@ version = "0.1.0"
 description = ""
 authors = ["ai_gelios <ai_gelios@mail.ru>"]
 readme = "README.md"
+packages = [{include = 'rooky_teams'}]
 
 [tool.poetry.dependencies]
 python = "^3.10"

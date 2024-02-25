@@ -1,0 +1,30 @@
+{% load i18n %}
+{% load django_bootstrap5 %}
+{% get_current_language as LANG %}
+
+<!DOCTYPE html>
+<html lang="{{ LANG }}">
+
+    <head>
+        <meta charset="UTF-8">
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+        <title>{% translate "Rooky Teams" %}</title>
+    </head>
+    
+    <body class="d-flex bg-white flex-column min-vh-100">
+        {% include "navbar.html" %}
+        <div class="mx-5 my-2 p-2">{% bootstrap_messages %}</div>
+        <div class="wrapper flex-grow-1">
+            <div class="p-5 mx-5 mt-2 mb-4 bg-light rounded shadow-sm">
+                {% block content %}
+                    <h1 class="text-center display-3">{% translate "Rooky Teams" %}</h1>
+                    <hr>
+                    <p class="lead">{% translate "Rooky Teams is the system for automatical generating or manual creating of rooky football team lineups. Lineups depends on player's skill and his role on a field." %}</p>
+                    <a class="btn btn-primary mb-3" href="{% url 'homepage' %}">{% translate "Let's begin" %}</a>
+                {% endblock %}
+            </div>
+        </div>
+        {% include "footer.html" %}
+    </body>
+</html>
