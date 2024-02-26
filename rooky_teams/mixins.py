@@ -1,0 +1,1 @@
+from django.contrib.messages.views import SuccessMessageMixin  # noqa

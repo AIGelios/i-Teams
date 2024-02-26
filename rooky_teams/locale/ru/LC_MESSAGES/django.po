@@ -1,0 +1,202 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-26 05:10+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: rooky_teams/players/forms.py:18
+#: rooky_teams/templates/players/details.html:18
+msgid "First name"
+msgstr "Имя"
+
+#: rooky_teams/players/forms.py:19
+#: rooky_teams/templates/players/details.html:22
+msgid "Last name"
+msgstr "Фамилия"
+
+#: rooky_teams/players/forms.py:20
+#: rooky_teams/templates/players/details.html:26
+#: rooky_teams/templates/players/index.html:15
+msgid "Role on the field"
+msgstr "Основная роль на поле"
+
+#: rooky_teams/players/forms.py:21
+#: rooky_teams/templates/players/details.html:30
+msgid "Goalkeeper skill"
+msgstr "Навык вратаря"
+
+#: rooky_teams/players/forms.py:22
+#: rooky_teams/templates/players/details.html:34
+msgid "Defender skill"
+msgstr "Навык защиты"
+
+#: rooky_teams/players/forms.py:23
+#: rooky_teams/templates/players/details.html:38
+msgid "Forward skill"
+msgstr "Навык нападения"
+
+#: rooky_teams/players/views.py:26
+msgid "Player successfully added!"
+msgstr "Игрок успешно добавлен в базу данных!"
+
+#: rooky_teams/players/views.py:34
+msgid "Player successfully updated!"
+msgstr "Данные игрока успешно изменены!"
+
+#: rooky_teams/players/views.py:41
+msgid "Player successfully deleted!"
+msgstr "Пользователь успешно удалён!"
+
+#: rooky_teams/roles/models.py:6
+msgid "Goalkeeper"
+msgstr "Вратарь"
+
+#: rooky_teams/roles/models.py:7
+msgid "Defender"
+msgstr "Защитник"
+
+#: rooky_teams/roles/models.py:8
+msgid "Forward"
+msgstr "Нападающий"
+
+#: rooky_teams/skills/models.py:6
+msgid "very bad"
+msgstr "Плохо"
+
+#: rooky_teams/skills/models.py:7
+msgid "bad"
+msgstr "Ниже среднего"
+
+#: rooky_teams/skills/models.py:8
+msgid "medium"
+msgstr "Нормально"
+
+#: rooky_teams/skills/models.py:9
+msgid "good"
+msgstr "Хорошо"
+
+#: rooky_teams/skills/models.py:10
+msgid "excellent"
+msgstr "Отлично"
+
+#: rooky_teams/templates/footer.html:5
+msgid "My Github"
+msgstr "Профиль ai_gelios на Github"
+
+#: rooky_teams/templates/footer.html:6
+msgid "Source"
+msgstr "Исходный код проекта"
+
+#: rooky_teams/templates/home.html:12
+msgid "an amateur football team lineups generator"
+msgstr "Генератор составов любительских футбольных команд"
+
+#: rooky_teams/templates/home.html:23
+msgid ""
+"Rookie Teams is the system for automatical generating or manual creating of "
+"amateur football team lineups. Lineups depends on player's skill and his "
+"role on a field."
+msgstr ""
+"Rookie Teams - cистема автоматической генерации или ручного формирования "
+"составов команд для любительского футбола. Автоматическая генерация создаёт "
+"сбалансированные команды в зависимости от уровня мастерства игроков и их "
+"роли на поле"
+
+#: rooky_teams/templates/home.html:24
+msgid "Let's begin"
+msgstr "Перейти к созранию команд"
+
+#: rooky_teams/templates/navbar.html:9
+#: rooky_teams/templates/players/index.html:7
+msgid "Players"
+msgstr "Игроки"
+
+#: rooky_teams/templates/navbar.html:12
+msgid "Lineups"
+msgstr "Сохранённые составы"
+
+#: rooky_teams/templates/navbar.html:15
+msgid "Roles"
+msgstr "Роли на поле"
+
+#: rooky_teams/templates/players/create.html:7
+msgid "Adding a new player"
+msgstr "Добавление нового игрока"
+
+#: rooky_teams/templates/players/create.html:12
+msgid "Add player"
+msgstr "Добавить нового игрока"
+
+#: rooky_teams/templates/players/delete.html:7
+msgid "Player deletion"
+msgstr "Удаление пользователя из базы данных"
+
+#: rooky_teams/templates/players/delete.html:10
+msgid "Confirm deletion of player"
+msgstr "Подтвердите удаление пользователя"
+
+#: rooky_teams/templates/players/delete.html:12
+msgid "Yes, delete"
+msgstr "Да, удалить"
+
+#: rooky_teams/templates/players/details.html:7
+msgid "Player details"
+msgstr "Информация об игроке"
+
+#: rooky_teams/templates/players/details.html:44
+#: rooky_teams/templates/players/index.html:31
+msgid "Update"
+msgstr "Изменить"
+
+#: rooky_teams/templates/players/details.html:45
+#: rooky_teams/templates/players/index.html:33
+msgid "Delete"
+msgstr "Удалить"
+
+#: rooky_teams/templates/players/index.html:9
+msgid "Add new player"
+msgstr "Добавить нового игрока"
+
+#: rooky_teams/templates/players/index.html:14
+msgid "Player name (average skill)"
+msgstr "Полное имя (средний рейтинг)"
+
+#: rooky_teams/templates/players/index.html:16
+msgid "Actions"
+msgstr "Действия"
+
+#: rooky_teams/templates/players/index.html:25
+msgid "GK:"
+msgstr "ВР:"
+
+#: rooky_teams/templates/players/index.html:26
+msgid "DEF:"
+msgstr "ЗАЩ:"
+
+#: rooky_teams/templates/players/index.html:27
+msgid "FRW:"
+msgstr "НАП:"
+
+#: rooky_teams/templates/players/update.html:7
+msgid "Player data updating"
+msgstr "Обновление информации об игроке"
+
+#: rooky_teams/templates/players/update.html:12
+msgid "Update player"
+msgstr "Обновить данные игрока"

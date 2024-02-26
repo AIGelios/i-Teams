@@ -1,0 +1,41 @@
+{% extends "home.html" %}
+{% load i18n %}
+
+{% block content %}
+<main>
+    <div class="container wrapper flex-grow-1">
+        <h2 class="text-center display-5">{% translate "Players" %}</h2>
+        <hr>
+        <a class="btn btn-primary mb-3" href="{% url 'player_create' %}">{% translate 'Add new player' %}</a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>{% translate "Player name (average skill)" %}</th>
+                    <th>{% translate "Role on the field" %}</th>
+                    <th>{% translate "Actions" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for player in object_list %}
+                <tr>
+                    <td>{{ player.id }}</td>
+                    <td>
+                        <h5><a href="{% url 'player_details' player.id %}">{{ player }}</a></h5>
+                        {% translate 'GK:' %} {{ player.gk_skill.value }}, 
+                        {% translate 'DEF:' %} {{ player.def_skill.value }}, 
+                        {% translate 'FRW:' %} {{ player.off_skill.value }}.
+                    </td>
+                    <td>{{ player.role }}</td>
+                    <td>
+                        <a href="{% url 'player_update' player.id %}">{% translate "Update" %}</a>
+                        <br>
+                        <a href="{% url 'player_delete' player.id %}">{% translate "Delete" %}</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</main>
+{% endblock %}

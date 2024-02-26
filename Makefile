@@ -22,3 +22,12 @@ selfcheck:
 	poetry check
 
 check: selfcheck test lint
+
+shell:
+	poetry run python3 manage.py shell
+
+loc-upd:
+	django-admin makemessages -l ru
+
+loc-com:
+	django-admin compilemessages

@@ -12,6 +12,8 @@ django = "^5.0.2"
 dj-database-url = "^2.1.0"
 django-bootstrap5 = "^23.4"
 python-dotenv = "^1.0.1"
+ipython = "^8.22.1"
+django-extensions = "^3.2.3"
 
 
 [tool.poetry.group.dev.dependencies]

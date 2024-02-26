@@ -1,0 +1,51 @@
+{% extends "home.html" %}
+{% load i18n %}
+
+{% block content %}
+<main>
+    <div class="container wrapper flex-grow-1">
+        <h2 class="text-center display-5">{% translate "Player details" %}</h2>
+        <hr>
+        <div class="card">
+            <div class="card-header bg-secondary text-white">
+                <h2>{{ player }}</h2>
+            </div>
+    
+            <div class="card-body bg-light">
+                <hr>
+                <div class="container">
+                    <div class="row p-1">
+                        <div class="col">{% translate 'First name' %}</div>
+                        <div class="col">{{ player.first_name }}</div>
+                    </div>
+                    <div class="row p-1">
+                        <div class="col">{% translate 'Last name' %}</div>
+                        <div class="col">{{ player.last_name }}</div>
+                    </div>
+                    <div class="row p-1">
+                        <div class="col">{% translate 'Role on the field' %}</div>
+                        <div class="col">{{ player.role }}</div>
+                    </div>
+                    <div class="row p-1">
+                        <div class="col">{% translate 'Goalkeeper skill' %}</div>
+                        <div class="col">{{ player.gk_skill }}</div>
+                    </div>
+                    <div class="row p-1">
+                        <div class="col">{% translate 'Defender skill' %}</div>
+                        <div class="col">{{ player.def_skill }}</div>
+                    </div>
+                    <div class="row p-1">
+                        <div class="col">{% translate 'Forward skill' %}</div>
+                        <div class="col">{{ player.off_skill }}</div>
+                    </div>
+                </div>
+                <hr>
+                <div class="container">
+                    <a class="btn btn-primary mb-3" href="{% url 'player_update' player.id %}">{% translate 'Update' %}</a>
+                    <a class="btn btn-primary mb-3" href="{% url 'player_delete' player.id %}">{% translate 'Delete' %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

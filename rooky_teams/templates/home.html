@@ -20,8 +20,8 @@
                 {% block content %}
                     <h1 class="text-center display-3">Rookie Teams</h1>
                     <hr>
-                    <p class="lead">Rookie Teams {% translate "The system for automatical generating or manual creating of amateur football team lineups. Lineups depends on player's skill and his role on a field." %}</p>
-                    <a class="btn btn-primary mb-3" href="{% url 'homepage' %}">{% translate "Let's begin" %}</a>
+                    <p class="lead">{% translate "Rookie Teams is the system for automatical generating or manual creating of amateur football team lineups. Lineups depends on player's skill and his role on a field." %}</p>
+                    <a class="btn btn-primary mb-3" href="{% url 'players_index' %}">{% translate "Let's begin" %}</a>
                 {% endblock %}
             </div>
         </div>
