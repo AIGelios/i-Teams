@@ -15,8 +15,10 @@ test:
 	poetry run python3 manage.py test
 
 coverage:
-	poetry run coverage run --source='.' manage.py test
-	poetry run coverage xml
+	poetry run python3 -m coverage run manage.py test
+
+cov-report:
+	poetry run python3 -m coverage xml
 
 selfcheck:
 	poetry check
