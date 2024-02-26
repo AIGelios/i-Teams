@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-26 05:10+0500\n"
+"POT-Creation-Date: 2024-02-26 15:36+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,10 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: rooky_teams/players/filters.py:11
+msgid "Filter by role:"
+msgstr "Фильтр по роли на поле:"
 
 #: rooky_teams/players/forms.py:18
 #: rooky_teams/templates/players/details.html:18
@@ -32,7 +36,7 @@ msgstr "Фамилия"
 
 #: rooky_teams/players/forms.py:20
 #: rooky_teams/templates/players/details.html:26
-#: rooky_teams/templates/players/index.html:15
+#: rooky_teams/templates/players/index.html:24
 msgid "Role on the field"
 msgstr "Основная роль на поле"
 
@@ -51,15 +55,15 @@ msgstr "Навык защиты"
 msgid "Forward skill"
 msgstr "Навык нападения"
 
-#: rooky_teams/players/views.py:26
+#: rooky_teams/players/views.py:32
 msgid "Player successfully added!"
 msgstr "Игрок успешно добавлен в базу данных!"
 
-#: rooky_teams/players/views.py:34
+#: rooky_teams/players/views.py:40
 msgid "Player successfully updated!"
 msgstr "Данные игрока успешно изменены!"
 
-#: rooky_teams/players/views.py:41
+#: rooky_teams/players/views.py:47
 msgid "Player successfully deleted!"
 msgstr "Пользователь успешно удалён!"
 
@@ -123,7 +127,7 @@ msgid "Let's begin"
 msgstr "Перейти к созранию команд"
 
 #: rooky_teams/templates/navbar.html:9
-#: rooky_teams/templates/players/index.html:7
+#: rooky_teams/templates/players/index.html:8
 msgid "Players"
 msgstr "Игроки"
 
@@ -132,8 +136,8 @@ msgid "Lineups"
 msgstr "Сохранённые составы"
 
 #: rooky_teams/templates/navbar.html:15
-msgid "Roles"
-msgstr "Роли на поле"
+msgid "Roster for the next game"
+msgstr "Список игроков на следующую игру"
 
 #: rooky_teams/templates/players/create.html:7
 msgid "Adding a new player"
@@ -141,7 +145,7 @@ msgstr "Добавление нового игрока"
 
 #: rooky_teams/templates/players/create.html:12
 msgid "Add player"
-msgstr "Добавить нового игрока"
+msgstr "Добавить игрока"
 
 #: rooky_teams/templates/players/delete.html:7
 msgid "Player deletion"
@@ -160,36 +164,40 @@ msgid "Player details"
 msgstr "Информация об игроке"
 
 #: rooky_teams/templates/players/details.html:44
-#: rooky_teams/templates/players/index.html:31
+#: rooky_teams/templates/players/index.html:40
 msgid "Update"
 msgstr "Изменить"
 
 #: rooky_teams/templates/players/details.html:45
-#: rooky_teams/templates/players/index.html:33
+#: rooky_teams/templates/players/index.html:42
 msgid "Delete"
 msgstr "Удалить"
 
-#: rooky_teams/templates/players/index.html:9
-msgid "Add new player"
-msgstr "Добавить нового игрока"
+#: rooky_teams/templates/players/index.html:13
+msgid "Show"
+msgstr "Показать"
 
-#: rooky_teams/templates/players/index.html:14
+#: rooky_teams/templates/players/index.html:18
+msgid "Add new player"
+msgstr "+ Добавить нового игрока"
+
+#: rooky_teams/templates/players/index.html:23
 msgid "Player name (average skill)"
 msgstr "Полное имя (средний рейтинг)"
 
-#: rooky_teams/templates/players/index.html:16
+#: rooky_teams/templates/players/index.html:25
 msgid "Actions"
 msgstr "Действия"
 
-#: rooky_teams/templates/players/index.html:25
+#: rooky_teams/templates/players/index.html:34
 msgid "GK:"
 msgstr "ВР:"
 
-#: rooky_teams/templates/players/index.html:26
+#: rooky_teams/templates/players/index.html:35
 msgid "DEF:"
 msgstr "ЗАЩ:"
 
-#: rooky_teams/templates/players/index.html:27
+#: rooky_teams/templates/players/index.html:36
 msgid "FRW:"
 msgstr "НАП:"
 

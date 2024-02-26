@@ -1,19 +1,22 @@
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import (
-    ListView, CreateView, UpdateView, DeleteView, DetailView
+    CreateView, UpdateView, DeleteView, DetailView
 )
+from django_filters.views import FilterView
 from .models import Player
-from rooky_teams.mixins import SuccessMessageMixin
 from .forms import PlayerForm
+from .filters import PlayerFilterSet
+from rooky_teams.mixins import SuccessMessageMixin
 
 
 SUCCESS_URL = reverse_lazy('players_index')
 
 
-class PlayersIndexView(ListView):
+class PlayersIndexView(FilterView):
     template_name = 'players/index.html'
     model = Player
+    filterset_class = PlayerFilterSet
 
 
 class PlayerDetailView(DetailView):

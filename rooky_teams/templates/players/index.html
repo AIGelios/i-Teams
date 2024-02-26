@@ -1,12 +1,22 @@
 {% extends "home.html" %}
 {% load i18n %}
+{% load django_bootstrap5 %}
 
 {% block content %}
 <main>
     <div class="container wrapper flex-grow-1">
         <h2 class="text-center display-5">{% translate "Players" %}</h2>
         <hr>
-        <a class="btn btn-primary mb-3" href="{% url 'player_create' %}">{% translate 'Add new player' %}</a>
+        <div class="card-body bg-white">
+            <form class="form-inline center bg-light" method="get">
+                    {% bootstrap_form filter.form field_class="bg-light ml-2 mr-3" %}
+                    {% translate "Show" as button_name %}
+                    {% bootstrap_button button_name button_type="submit" button_class="btn btn-primary" %}
+                    <a class="btn btn-primary" href="{% url 'player_create' %}">{% translate 'Add new player' %}</a>
+            </form>
+        </div>
+        <hr>
+        
         <table class="table table-striped">
             <thead>
                 <tr>
