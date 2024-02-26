@@ -4,6 +4,7 @@ Rookie Teams - приложение для формирования сбалан
 
 ### Линтеры и качество кода:
 [![Maintainability](https://api.codeclimate.com/v1/badges/a6b8e58aa6182b92136a/maintainability)](https://codeclimate.com/github/AIGelios/rookyteams/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/a6b8e58aa6182b92136a/test_coverage)](https://codeclimate.com/github/AIGelios/rookyteams/test_coverage)
 
 ### Инструменты разработки:
 Приложение создано при помощи Python, Django, PostgreSQL
