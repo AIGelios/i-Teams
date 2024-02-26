@@ -22,5 +22,3 @@ class PlayerForm(ModelForm):
             def_skill=_('Defender skill'),
             off_skill=_('Forward skill'),
         )
-
-        

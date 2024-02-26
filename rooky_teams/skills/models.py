@@ -13,6 +13,6 @@ TRANSLATED_NAMES = {
 
 class SkillLevel(models.Model):
     value = models.IntegerField()
-    
+
     def __str__(self):
         return f'{TRANSLATED_NAMES.get(self.value)} ({self.value})'

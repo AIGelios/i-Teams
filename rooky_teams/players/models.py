@@ -2,7 +2,7 @@ from django.db import models
 from rooky_teams.roles.models import Role
 from rooky_teams.skills.models import SkillLevel
 
-# Create your models here.
+
 class Player(models.Model):
     first_name = models.CharField(
         max_length=64,

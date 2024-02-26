@@ -1,0 +1,70 @@
+[
+    {
+        "model": "skills.skilllevel",
+        "pk": 1,
+        "fields": {
+            "value": 1
+        }
+    },
+    {
+        "model": "skills.skilllevel",
+        "pk": 2,
+        "fields": {
+            "value": 2
+        }
+    },
+    {
+        "model": "skills.skilllevel",
+        "pk": 3,
+        "fields": {
+            "value": 3
+        }
+    },
+    {
+        "model": "skills.skilllevel",
+        "pk": 4,
+        "fields": {
+            "value": 4
+        }
+    },
+    {
+        "model": "skills.skilllevel",
+        "pk": 5,
+        "fields": {
+            "value": 5
+        }
+    },
+    {
+        "model": "roles.role",
+        "pk": 1,
+        "fields": {
+            "name": "Goalkeeper"
+        }
+    },
+    {
+        "model": "roles.role",
+        "pk": 2,
+        "fields": {
+            "name": "Defender"
+        }
+    },
+    {
+        "model": "roles.role",
+        "pk": 3,
+        "fields": {
+            "name": "Forward"
+        }
+    },
+    {
+        "model": "players.player",
+        "pk": 1,
+        "fields": {
+            "first_name": "Test_name_1",
+            "last_name": "Test_surname_1",
+            "role": 3,
+            "gk_skill": 2,
+            "def_skill": 3,
+            "off_skill": 4
+        }
+    }
+]

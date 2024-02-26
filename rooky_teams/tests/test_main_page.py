@@ -1,5 +1,4 @@
-from django.test import TestCase
-from django.urls import reverse_lazy
+from . import TestCase, reverse_lazy
 
 
 TEST_URL = reverse_lazy('homepage')
