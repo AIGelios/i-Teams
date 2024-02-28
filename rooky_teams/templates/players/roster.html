@@ -1,0 +1,42 @@
+{% extends "home.html" %}
+{% load i18n %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+<main>
+    <div class="container wrapper flex-grow-1">
+        <h2 class="text-center display-5">{% translate "Players for the next match" %}</h2>
+        <hr>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>{% translate "Player ID"%}</th>
+                    <th>{% translate "Player name (average skill)" %}</th>
+                    <th>{% translate "skills" %}</th>
+                    <th>{% translate "Role on the field" %}</th>
+                    <th>{% translate "Actions" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in object_list %}
+                <tr>
+                    <td>{{ item.player.id }}</td>
+                    <td>
+                        <h5><a href="{% url 'player_details' item.player.id %}">{{ item.player }}</a></h5>
+                    </td>
+                    <td>
+                        {% translate 'DEF:' %} {{ item.player.def_skill.value }} , 
+                        {% translate 'FRW:' %} {{ item.player.off_skill.value }} ,
+                        {% translate 'GK:' %} {{ item.player.gk_skill.value }} .
+                    </td>
+                    <td>{{ item.player.role }}</td>
+                    <td>
+                        <a href="{% url 'delete_from_roster' item.id %}">{% translate "Delete" %}</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</main>
+{% endblock %}

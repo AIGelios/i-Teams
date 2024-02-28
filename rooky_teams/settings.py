@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django_bootstrap5',
     'rooky_teams',
     'rooky_teams.players',
+    'rooky_teams.roster',
     'rooky_teams.roles',
     'rooky_teams.skills',
     'rooky_teams.lineups',

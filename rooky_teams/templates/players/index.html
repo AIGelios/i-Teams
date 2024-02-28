@@ -10,18 +10,18 @@
         <div class="card-body bg-white">
             <form class="form-inline center bg-light" method="get">
                     {% bootstrap_form filter.form field_class="bg-light ml-2 mr-3" %}
-                    {% translate "Show" as button_name %}
+                    {% translate "Apply filter" as button_name %}
                     {% bootstrap_button button_name button_type="submit" button_class="btn btn-primary" %}
                     <a class="btn btn-primary" href="{% url 'player_create' %}">{% translate 'Add new player' %}</a>
             </form>
         </div>
-        <hr>
-        
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>{% translate "Player name (average skill)" %}</th>
+                    <th>{% translate 'skills' %}</th>
+                    <th>{% translate "Status" %}</th>
                     <th>{% translate "Role on the field" %}</th>
                     <th>{% translate "Actions" %}</th>
                 </tr>
@@ -31,15 +31,27 @@
                 <tr>
                     <td>{{ player.id }}</td>
                     <td>
-                        <h5><a href="{% url 'player_details' player.id %}">{{ player }}</a></h5>
-                        {% translate 'GK:' %} {{ player.gk_skill.value }}, 
-                        {% translate 'DEF:' %} {{ player.def_skill.value }}, 
-                        {% translate 'FRW:' %} {{ player.off_skill.value }}.
+                        <a href="{% url 'player_details' player.id %}">{{ player }}</a>
+                    </td>
+                    <td>
+                        {% translate 'DEF:' %} {{ player.def_skill.value }} , 
+                        {% translate 'FRW:' %} {{ player.off_skill.value }} ,
+                        {% translate 'GK:' %} {{ player.gk_skill.value }} .
+                    </td>
+                    <td>
+                        {% if player.playerinroster %}
+                        {% translate 'in roster' %}
+                        {% else %}
+                        <form action='{% url "add_to_roster" player.id %}' method="post">
+                            {% csrf_token %}
+                            {% translate "Add to roster" as button_name %}
+                            {% bootstrap_button button_name button_type="submit" button_class="btn btn-primary" %}
+                        </form>
+                        {% endif %}
                     </td>
                     <td>{{ player.role }}</td>
                     <td>
                         <a href="{% url 'player_update' player.id %}">{% translate "Update" %}</a>
-                        <br>
                         <a href="{% url 'player_delete' player.id %}">{% translate "Delete" %}</a>
                     </td>
                 </tr>

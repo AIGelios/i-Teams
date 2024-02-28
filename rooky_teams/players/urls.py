@@ -4,6 +4,7 @@ from .views import (
     PlayerCreateView,
     PlayerUpdateView,
     PlayerDeleteView,
+    AddToRosrerView,
 )
 from django.urls import path
 
@@ -14,4 +15,9 @@ urlpatterns = [
     path('create/', PlayerCreateView.as_view(), name='player_create'),
     path('<int:pk>/update/', PlayerUpdateView.as_view(), name='player_update'),
     path('<int:pk>/delete/', PlayerDeleteView.as_view(), name='player_delete'),
+    path(
+        '<int:pk>/add_to_roster/',
+        AddToRosrerView.as_view(),
+        name='add_to_roster'
+    ),
 ]
