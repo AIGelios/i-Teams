@@ -1,6 +1,20 @@
 from django.db import models
-from rooky_teams.roles.models import Role
-from rooky_teams.skills.models import SkillLevel
+from django.utils.translation import gettext as _
+
+
+ROLES = (
+    (1, _('Goalkeeper')),
+    (2, _('Defender')),
+    (3, _('Forward')),
+)
+
+SKILLS = (
+    (1, _('1 - Very bad')),
+    (2, _('2 - Bad')),
+    (3, _('3 - Medium')),
+    (4, _('4 - Good')),
+    (5, _('5 - Excellent')),
+)
 
 
 class Player(models.Model):
@@ -10,42 +24,38 @@ class Player(models.Model):
     last_name = models.CharField(
         max_length=64,
     )
-    role = models.ForeignKey(
-        to=Role,
-        on_delete=models.PROTECT,
-        blank=False,
-        null=False,
-        related_name='role'
+    role = models.SmallIntegerField(
+        choices=ROLES,
     )
-    gk_skill = models.ForeignKey(
-        to=SkillLevel,
-        on_delete=models.PROTECT,
-        blank=False,
-        null=False,
-        related_name='gk_skill'
+    gk_skill = models.SmallIntegerField(
+        choices=SKILLS,
     )
-    def_skill = models.ForeignKey(
-        to=SkillLevel,
-        on_delete=models.PROTECT,
-        blank=False,
-        null=False,
-        related_name='def_skill'
+    def_skill = models.SmallIntegerField(
+        choices=SKILLS,
     )
-    off_skill = models.ForeignKey(
-        to=SkillLevel,
-        on_delete=models.PROTECT,
-        blank=False,
-        null=False,
-        related_name='off_skill'
+    frw_skill = models.SmallIntegerField(
+        choices=SKILLS
+    )
+    is_in_roster = models.BooleanField(
+        default=False,
+        null=False
     )
 
     @property
+    def role_name(self):
+        return dict(ROLES)[self.role]
+
+    @property
     def avg_skill(self):
-        return round(sum((
-            self.gk_skill.value,
-            self.def_skill.value,
-            self.off_skill.value,
-        )) / 3, 2)
+        return round(sum([
+            self.gk_skill,
+            self.def_skill,
+            self.frw_skill,
+        ]) / 3, 1)
+
+    @property
+    def full_name(self):
+        return f'{self.first_name} {self.last_name}'
 
     def __str__(self):
-        return f'{self.first_name} {self.last_name} ({self.avg_skill})'
+        return f'{self.full_name} ({self.avg_skill})'

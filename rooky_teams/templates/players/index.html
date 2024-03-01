@@ -5,7 +5,7 @@
 {% block content %}
 <main>
     <div class="container wrapper flex-grow-1">
-        <h2 class="text-center display-5">{% translate "Players" %}</h2>
+        <h2 class="text-center display-5">{% translate "Players" %} ({{ object_list.count }})</h2>
         <hr>
         <div class="card-body bg-white">
             <form class="form-inline center bg-light" method="get">
@@ -18,8 +18,7 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>{% translate "Player name (average skill)" %}</th>
+                    <th>{% translate "Player name" %}</th>
                     <th>{% translate 'skills' %}</th>
                     <th>{% translate "Status" %}</th>
                     <th>{% translate "Role on the field" %}</th>
@@ -29,17 +28,16 @@
             <tbody>
                 {% for player in object_list %}
                 <tr>
-                    <td>{{ player.id }}</td>
                     <td>
                         <a href="{% url 'player_details' player.id %}">{{ player }}</a>
                     </td>
                     <td>
-                        {% translate 'DEF:' %} {{ player.def_skill.value }} , 
-                        {% translate 'FRW:' %} {{ player.off_skill.value }} ,
-                        {% translate 'GK:' %} {{ player.gk_skill.value }} .
+                        {% translate 'DEF:' %} {{ player.def_skill }} , 
+                        {% translate 'FRW:' %} {{ player.frw_skill }} ,
+                        {% translate 'GK:' %} {{ player.gk_skill }} .
                     </td>
                     <td>
-                        {% if player.playerinroster %}
+                        {% if player.is_in_roster %}
                         {% translate 'in roster' %}
                         {% else %}
                         <form action='{% url "add_to_roster" player.id %}' method="post">
@@ -49,7 +47,7 @@
                         </form>
                         {% endif %}
                     </td>
-                    <td>{{ player.role }}</td>
+                    <td>{{ player.role_name }}</td>
                     <td>
                         <a href="{% url 'player_update' player.id %}">{% translate "Update" %}</a>
                         <a href="{% url 'player_delete' player.id %}">{% translate "Delete" %}</a>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-29 00:02+0500\n"
+"POT-Creation-Date: 2024-03-01 16:12+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,8 +36,8 @@ msgstr "Фамилия"
 
 #: rooky_teams/players/forms.py:20
 #: rooky_teams/templates/players/details.html:26
-#: rooky_teams/templates/players/index.html:25
-#: rooky_teams/templates/players/roster.html:16
+#: rooky_teams/templates/players/index.html:24
+#: rooky_teams/templates/players/roster.html:15
 msgid "Role on the field"
 msgstr "Основная роль на поле"
 
@@ -56,25 +56,33 @@ msgstr "Навык защиты"
 msgid "Forward skill"
 msgstr "Навык нападения"
 
-#: rooky_teams/players/views.py:36
+#: rooky_teams/players/views.py:52
 msgid "Player successfully added!"
-msgstr "Игрок успешно добавлен в базу данных!"
+msgstr "Игрок успешно добавлен в базу данных."
 
-#: rooky_teams/players/views.py:44
+#: rooky_teams/players/views.py:60
 msgid "Player successfully updated!"
-msgstr "Данные игрока успешно изменены!"
+msgstr "Данные игрока успешно изменены в базе данных."
 
-#: rooky_teams/players/views.py:51
+#: rooky_teams/players/views.py:67
 msgid "Player successfully deleted from database!"
-msgstr "Игрок успешно удалён из базы данных!"
+msgstr "Игрок успешно удалён из базы данных."
 
-#: rooky_teams/players/views.py:56
+#: rooky_teams/players/views.py:72
 msgid "Player successfully added to the next match!"
-msgstr "Игрок успешно добавлен предстоящую игру!"
+msgstr "Игрок успешно добавлен в предстоящую игру."
 
-#: rooky_teams/players/views.py:57
+#: rooky_teams/players/views.py:73
 msgid "Error. Cannot add player to roster!"
 msgstr "Ошибка добавления игрока в предстоящую игру!"
+
+#: rooky_teams/players/views.py:87
+msgid "Player successfully removed from roster!"
+msgstr "Игрок успешно удалён из списка на ближайшую игру."
+
+#: rooky_teams/players/views.py:88
+msgid "Error. Cannot remove player from roster!"
+msgstr "Ошибка удаления игрока из списка на предстоящую игру!"
 
 #: rooky_teams/roles/models.py:6
 msgid "Goalkeeper"
@@ -87,10 +95,6 @@ msgstr "Защитник"
 #: rooky_teams/roles/models.py:8
 msgid "Forward"
 msgstr "Нападающий"
-
-#: rooky_teams/roster/views.py:20
-msgid "Player successfully deleted from roster!"
-msgstr "Игрок успешно удалён из списка на ближайшую игру!"
 
 #: rooky_teams/skills/models.py:6
 msgid "very bad"
@@ -165,7 +169,6 @@ msgid "Player deletion"
 msgstr "Удаление игрока из базы данных"
 
 #: rooky_teams/templates/players/delete.html:10
-#: rooky_teams/templates/players/delfromroster.html:10
 msgid "Do you really want to delete player"
 msgstr "Вы действительно хотите удалить игрока"
 
@@ -174,30 +177,20 @@ msgid "from database"
 msgstr "из базы данных"
 
 #: rooky_teams/templates/players/delete.html:12
-#: rooky_teams/templates/players/delfromroster.html:12
 msgid "Yes, delete"
 msgstr "Да, удалить"
-
-#: rooky_teams/templates/players/delfromroster.html:7
-msgid "Player deletion from roster"
-msgstr "Удаление игрока из списка на ближайшую игру"
-
-#: rooky_teams/templates/players/delfromroster.html:10
-msgid "from roster"
-msgstr "из списка идущих"
 
 #: rooky_teams/templates/players/details.html:7
 msgid "Player details"
 msgstr "Информация об игроке"
 
 #: rooky_teams/templates/players/details.html:44
-#: rooky_teams/templates/players/index.html:54
+#: rooky_teams/templates/players/index.html:52
 msgid "Update"
 msgstr "Изменить"
 
 #: rooky_teams/templates/players/details.html:45
-#: rooky_teams/templates/players/index.html:55
-#: rooky_teams/templates/players/roster.html:34
+#: rooky_teams/templates/players/index.html:53
 msgid "Delete"
 msgstr "Удалить"
 
@@ -209,45 +202,45 @@ msgstr "Применить фильтр"
 msgid "Add new player"
 msgstr "+ Добавить нового игрока"
 
-#: rooky_teams/templates/players/index.html:22
-#: rooky_teams/templates/players/roster.html:14
+#: rooky_teams/templates/players/index.html:21
+#: rooky_teams/templates/players/roster.html:13
 msgid "Player name (average skill)"
 msgstr "Полное имя (средний рейтинг)"
 
-#: rooky_teams/templates/players/index.html:23
-#: rooky_teams/templates/players/roster.html:15
+#: rooky_teams/templates/players/index.html:22
+#: rooky_teams/templates/players/roster.html:14
 msgid "skills"
 msgstr "Навыки"
 
-#: rooky_teams/templates/players/index.html:24
+#: rooky_teams/templates/players/index.html:23
 msgid "Status"
 msgstr "Статус"
 
-#: rooky_teams/templates/players/index.html:26
-#: rooky_teams/templates/players/roster.html:17
+#: rooky_teams/templates/players/index.html:25
+#: rooky_teams/templates/players/roster.html:16
 msgid "Actions"
 msgstr "Действия"
 
-#: rooky_teams/templates/players/index.html:37
-#: rooky_teams/templates/players/roster.html:28
+#: rooky_teams/templates/players/index.html:35
+#: rooky_teams/templates/players/roster.html:26
 msgid "DEF:"
 msgstr "ЗАЩ:"
 
-#: rooky_teams/templates/players/index.html:38
-#: rooky_teams/templates/players/roster.html:29
+#: rooky_teams/templates/players/index.html:36
+#: rooky_teams/templates/players/roster.html:27
 msgid "FRW:"
 msgstr "НАП:"
 
-#: rooky_teams/templates/players/index.html:39
-#: rooky_teams/templates/players/roster.html:30
+#: rooky_teams/templates/players/index.html:37
+#: rooky_teams/templates/players/roster.html:28
 msgid "GK:"
 msgstr "ВР:"
 
-#: rooky_teams/templates/players/index.html:43
+#: rooky_teams/templates/players/index.html:41
 msgid "in roster"
 msgstr "В ИГРЕ"
 
-#: rooky_teams/templates/players/index.html:47
+#: rooky_teams/templates/players/index.html:45
 msgid "Add to roster"
 msgstr "Добавить в игру"
 
@@ -255,9 +248,9 @@ msgstr "Добавить в игру"
 msgid "Players for the next match"
 msgstr "Участники предстоящего матча"
 
-#: rooky_teams/templates/players/roster.html:13
-msgid "Player ID"
-msgstr "ID Игрока"
+#: rooky_teams/templates/players/roster.html:34
+msgid "Remove from roster"
+msgstr "Не пойдёт играть"
 
 #: rooky_teams/templates/players/update.html:7
 msgid "Player data updating"

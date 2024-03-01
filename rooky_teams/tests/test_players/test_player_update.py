@@ -9,7 +9,8 @@ NEW_PLAYER = dict(
     role=2,
     gk_skill=3,
     def_skill=2,
-    off_skill=1,
+    frw_skill=1,
+    is_in_roster=False,
 )
 
 

@@ -12,7 +12,7 @@ class PlayerForm(ModelForm):
             'role',
             'gk_skill',
             'def_skill',
-            'off_skill',
+            'frw_skill',
         )
         labels = dict(
             first_name=_('First name'),
@@ -20,5 +20,5 @@ class PlayerForm(ModelForm):
             role=_('Role on the field'),
             gk_skill=_('Goalkeeper skill'),
             def_skill=_('Defender skill'),
-            off_skill=_('Forward skill'),
+            frw_skill=_('Forward skill'),
         )

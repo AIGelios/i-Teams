@@ -14,4 +14,4 @@ class TestPlayersIndex(TestCase):
         player = Player.objects.get(id=1)
         self.assertIn(player, players)
         self.assertContains(response, player.__str__())
-        self.assertContains(response, player.role.__str__())
+        self.assertContains(response, player.role_name)

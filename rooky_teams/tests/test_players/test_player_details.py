@@ -14,4 +14,4 @@ class TestPlayerDetails(TestCase):
         player_on_page = response.context.get('player')
         self.assertEqual(player_in_db, player_on_page)
         self.assertContains(response, player_in_db.__str__())
-        self.assertContains(response, player_in_db.gk_skill.__str__())
+        self.assertContains(response, player_in_db.role_name)
