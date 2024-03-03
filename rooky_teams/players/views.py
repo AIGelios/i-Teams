@@ -15,6 +15,7 @@ from rooky_teams.mixins import SuccessMessageMixin
 from django.shortcuts import redirect
 from django.contrib import messages
 from django.db import IntegrityError
+from .tools import generate_balanced_teams
 
 
 SUCCESS_URL = reverse_lazy('players_index')
@@ -107,3 +108,12 @@ class RosterClearView(TemplateView):
         except IntegrityError:
             messages.error(self.request, error_message)
         return redirect(reverse_lazy('players_index'))
+
+
+class GenerateLineupsView(TemplateView):
+    template_name = 'players/lineup.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update(generate_balanced_teams())
+        return context

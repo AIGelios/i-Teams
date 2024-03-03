@@ -2,19 +2,18 @@ from django.db import models
 from django.utils.translation import gettext as _
 
 
-ROLES = (
-    (1, _('Goalkeeper')),
-    (2, _('Defender')),
-    (3, _('Forward')),
-)
+class Roles(models.IntegerChoices):
+    GOALKEEPER = (1, _('Goalkeeper'))
+    DEFENDER = (2, _('Defender'))
+    FORWARD = (3, _('Forward'))
 
-SKILLS = (
-    (1, _('1 - Very bad')),
-    (2, _('2 - Bad')),
-    (3, _('3 - Medium')),
-    (4, _('4 - Good')),
-    (5, _('5 - Excellent')),
-)
+
+class Skills(models.IntegerChoices):
+    VERY_BAD = (1, _('1 - Very bad'))
+    BAD = (2, _('2 - Bad'))
+    MEDIUM = (3, _('3 - Medium'))
+    GOOD = (4, _('4 - Good'))
+    EXCELLENT = (5, _('5 - Excellent'))
 
 
 class Player(models.Model):
@@ -25,16 +24,16 @@ class Player(models.Model):
         max_length=64,
     )
     role = models.SmallIntegerField(
-        choices=ROLES,
+        choices=Roles.choices,
     )
     gk_skill = models.SmallIntegerField(
-        choices=SKILLS,
+        choices=Skills.choices,
     )
     def_skill = models.SmallIntegerField(
-        choices=SKILLS,
+        choices=Skills.choices,
     )
     frw_skill = models.SmallIntegerField(
-        choices=SKILLS
+        choices=Skills.choices
     )
     is_in_roster = models.BooleanField(
         default=False,
@@ -43,7 +42,7 @@ class Player(models.Model):
 
     @property
     def role_name(self):
-        return dict(ROLES)[self.role]
+        return dict(Roles.choices)[self.role]
 
     @property
     def avg_skill(self):

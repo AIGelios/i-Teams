@@ -1,0 +1,75 @@
+{% extends "home.html" %}
+{% load i18n %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+<main>
+    <div class="container wrapper flex-grow-1">
+        <h2 class="text-center display-5">{% translate "The proposal of the teams for the match" %}</h2>
+        <hr>
+        <table class="table table-striped">
+            <h4>{% translate 'Team 1' %}</h4>
+            <thead>
+                <tr>
+                    <th>{% translate "Player name (average skill)" %}</th>
+                    <th>{% translate 'skills' %}</th>
+                    <th>{% translate "Role on the field" %}</th>
+                    <th>{% translate "Actions" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for player in team_1 %}
+                <tr>
+                    <td>{{ player }}</td>
+                    <td>
+                        {% translate 'DEF:' %} {{ player.def_skill }} , 
+                        {% translate 'FRW:' %} {{ player.frw_skill }} ,
+                        {% translate 'GK:' %} {{ player.gk_skill }} .
+                    </td>
+                    <td>{{ player.role_name }}</td>
+                    <td>
+                        <form method="post">
+                            {% csrf_token %}
+                            {% translate "Button" as button_name %}
+                            {% bootstrap_button button_name button_type="submit" button_class="btn btn-primary" %}
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <table class="table table-striped">
+            <h4>{% translate 'Team 2' %}</h4>
+            <thead>
+                <tr>
+                    <th>{% translate "Player name (average skill)" %}</th>
+                    <th>{% translate 'skills' %}</th>
+                    <th>{% translate "Role on the field" %}</th>
+                    <th>{% translate "Actions" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for player in team_2 %}
+                <tr>
+                    <td>{{ player }}</td>
+                    <td>
+                        {% translate 'DEF:' %} {{ player.def_skill }} , 
+                        {% translate 'FRW:' %} {{ player.frw_skill }} ,
+                        {% translate 'GK:' %} {{ player.gk_skill }} .
+                    </td>
+                    <td>{{ player.role_name }}</td>
+                    <td>
+                        <form method="post">
+                            {% csrf_token %}
+                            {% translate "Button" as button_name %}
+                            {% bootstrap_button button_name button_type="submit" button_class="btn btn-primary" %}
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a class="btn btn-primary" href="{% url 'lineups' %}">{% translate 'Generate lineups again (F5)' %}</a>
+    </div>
+</main>
+{% endblock %}

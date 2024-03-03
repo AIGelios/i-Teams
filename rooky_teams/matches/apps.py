@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class LineupsConfig(AppConfig):
+class MatchesConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'lineups'
+    name = 'rooky_teams.matches'

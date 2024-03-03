@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django_bootstrap5',
     'rooky_teams',
     'rooky_teams.players',
+    'rooky_teams.matches',
 ]
 
 MIDDLEWARE = [

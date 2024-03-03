@@ -8,6 +8,7 @@ from .views import (
     AddToRosrerView,
     DeleteFromRosterView,
     RosterClearView,
+    GenerateLineupsView,
 )
 from django.urls import path
 
@@ -37,4 +38,5 @@ urlpatterns = [
         'roster/clear/',
         RosterClearView.as_view(),
         name='clear_roster'),
+    path('lineups/', GenerateLineupsView.as_view(), name='lineups')
 ]
