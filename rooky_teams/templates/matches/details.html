@@ -1,0 +1,79 @@
+{% extends "home.html" %}
+{% load i18n %}
+
+{% block content %}
+<main>
+    <div class="container wrapper flex-grow-1">
+        <div class="card">
+            <div class="card-header bg-secondary text-white">
+                <h2 class="text-center display-5"> {% translate "Match information" %} {{ match.match_date }}:</h2>
+            </div>
+            <div class="card-body bg-light">
+                <div class="row p-1">
+                    <div class="col"><h3 class="text-center display-5">{% translate 'Team 1' %}</h3></div>
+                    <div class="col"><h3 class="text-center display-1">{{ match.team_1_goals }} - {{ match.team_2_goals }}</h3></div>
+                    <div class="col"><h3 class="text-center display-5">{% translate 'Team 2' %}</h3></div>
+                </div>
+                
+                <hr>
+                <table class="table table-striped">
+                    <h4>{% translate 'Team 1 lineup' %}</h4>
+                    <thead>
+                        <tr>
+                            <th>{% translate "Player name (average skill)" %}</th>
+                            <th>{% translate 'skills' %}</th>
+                            <th>{% translate "Role on the field" %}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for player in match.get_team_1 %}
+                        <tr>
+                            <td>{{ player }}</td>
+                            <td>
+                                {% translate 'DEF:' %} {{ player.def_skill }} , 
+                                {% translate 'FRW:' %} {{ player.frw_skill }} ,
+                                {% translate 'GK:' %} {{ player.gk_skill }} .
+                            </td>
+                            <td>{{ player.role_name }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <table class="table table-striped">
+                    <h4>{% translate 'Team 2 lineup' %}</h4>
+                    <thead>
+                        <tr>
+                            <th>{% translate "Player name (average skill)" %}</th>
+                            <th>{% translate 'skills' %}</th>
+                            <th>{% translate "Role on the field" %}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for player in match.get_team_2 %}
+                        <tr>
+                            <td>{{ player }}</td>
+                            <td>
+                                {% translate 'DEF:' %} {{ player.def_skill }} , 
+                                {% translate 'FRW:' %} {{ player.frw_skill }} ,
+                                {% translate 'GK:' %} {{ player.gk_skill }} .
+                            </td>
+                            <td>{{ player.role_name }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <div class="row p-1">
+                    <div class="col">
+                        <h1 class="display-6">{% translate 'Match notes:' %}<h1>
+                        <p>{{ match.description }}</p>
+                    </div>
+                </div> <hr>
+                <div class="container">
+                    <a class="btn btn-primary mb-3" href="{% url 'match_update' match.id %}">{% translate 'Update match information' %}</a>
+                    <a class="btn btn-danger mb-3" href="{% url 'match_delete' match.id %}">{% translate 'Delete match' %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

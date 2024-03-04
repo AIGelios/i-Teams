@@ -1,17 +1,10 @@
 from .. import TestCase, reverse_lazy, Player
-
+import json
 
 PLAYERS_INDEX_URL = reverse_lazy('players_index')
 PLAYER_UPDATE_URL = reverse_lazy('player_update', kwargs=dict(pk=1))
-NEW_PLAYER = dict(
-    first_name='Test_name_2',
-    last_name='Test_surname_2',
-    role=2,
-    gk_skill=3,
-    def_skill=2,
-    frw_skill=1,
-    is_in_roster=False,
-)
+with open('rooky_teams/tests/fixtures/new_player_2.json') as file:
+    NEW_PLAYER = json.load(file)
 
 
 class TestPlayerUpdate(TestCase):
@@ -27,5 +20,5 @@ class TestPlayerUpdate(TestCase):
         self.assertEqual(Player.objects.all().count(), 1)
         last_player = Player.objects.last()
         self.assertEqual(last_player.last_name, NEW_PLAYER['last_name'])
-        self.assertEqual(last_player.avg_skill, 2)
+        self.assertEqual(last_player.avg_skill, 4)
         self.assertRedirects(response, PLAYERS_INDEX_URL)

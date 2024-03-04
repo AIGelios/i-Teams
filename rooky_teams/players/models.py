@@ -1,19 +1,20 @@
 from django.db import models
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
+
+ROLES_CHOICES = (
+    (1, _('Goalkeeper')),
+    (2, _('Defender')),
+    (3, _('Forward')),
+)
 
 
-class Roles(models.IntegerChoices):
-    GOALKEEPER = (1, _('Goalkeeper'))
-    DEFENDER = (2, _('Defender'))
-    FORWARD = (3, _('Forward'))
-
-
-class Skills(models.IntegerChoices):
-    VERY_BAD = (1, _('1 - Very bad'))
-    BAD = (2, _('2 - Bad'))
-    MEDIUM = (3, _('3 - Medium'))
-    GOOD = (4, _('4 - Good'))
-    EXCELLENT = (5, _('5 - Excellent'))
+SKILLS_CHOICES = (
+    (1, _('1 - Very bad')),
+    (2, _('2 - Bad')),
+    (3, _('3 - Medium')),
+    (4, _('4 - Good')),
+    (5, _('5 - Excellent')),
+)
 
 
 class Player(models.Model):
@@ -24,16 +25,16 @@ class Player(models.Model):
         max_length=64,
     )
     role = models.SmallIntegerField(
-        choices=Roles.choices,
+        choices=ROLES_CHOICES,
     )
     gk_skill = models.SmallIntegerField(
-        choices=Skills.choices,
+        choices=SKILLS_CHOICES,
     )
     def_skill = models.SmallIntegerField(
-        choices=Skills.choices,
+        choices=SKILLS_CHOICES,
     )
     frw_skill = models.SmallIntegerField(
-        choices=Skills.choices
+        choices=SKILLS_CHOICES
     )
     is_in_roster = models.BooleanField(
         default=False,
@@ -42,7 +43,7 @@ class Player(models.Model):
 
     @property
     def role_name(self):
-        return dict(Roles.choices)[self.role]
+        return dict(ROLES_CHOICES)[self.role]
 
     @property
     def avg_skill(self):

@@ -1,17 +1,11 @@
 from .. import TestCase, reverse_lazy, Player
+import json
 
 
 PLAYERS_INDEX_URL = reverse_lazy('players_index')
 PLAYER_CREATE_URL = reverse_lazy('player_create')
-NEW_PLAYER = dict(
-    first_name='Test_name_2',
-    last_name='Test_surname_2',
-    role=2,
-    gk_skill=5,
-    def_skill=4,
-    frw_skill=3,
-    is_in_roster=False,
-)
+with open('rooky_teams/tests/fixtures/new_player_2.json') as file:
+    NEW_PLAYER = json.load(file)
 
 
 class TestPlayerCreate(TestCase):

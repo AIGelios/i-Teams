@@ -74,4 +74,3 @@ def get_team_ids_json(team: list) -> str:
     '''Take list with Player objrcts and return list with player IDs
     as JSON string'''
     return json.dumps([x.id for x in team])
-

@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomePageView.as_view(), name='homepage'),
     path('players/', include('rooky_teams.players.urls')),
+    path('matches/', include('rooky_teams.matches.urls')),
 ]

@@ -1,0 +1,15 @@
+{% extends "home.html" %}
+
+{% load django_bootstrap5 %}
+{% load i18n %}
+
+{% block content %}
+    <h2 class="text-center display-5">{% translate "Match information updating" %}</h2>
+    <hr>
+    <form method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% translate "Update" as action %}
+        {% bootstrap_button action button_type="submit" button_class="btn btn-primary" %}
+    </form>
+{% endblock %}
