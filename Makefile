@@ -7,6 +7,10 @@ lint:
 dev-server:
 	poetry run python3 manage.py runserver
 
+PORT ?= 8000
+prod-server:
+	poetry run gunicorn -w 5 -b 0.0.0.0:$(PORT) rooky_teams.wsgi
+
 migrate:
 	poetry run python3 manage.py makemigrations
 	poetry run python3 manage.py migrate
@@ -33,3 +37,5 @@ loc-upd:
 
 loc-com:
 	django-admin compilemessages
+
+deploy: install migrate
