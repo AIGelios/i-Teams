@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-04 16:57+0500\n"
+"POT-Creation-Date: 2024-03-05 11:58+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,19 +20,19 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: rooky_teams/matches/forms.py:17
+#: rooky_teams/matches/forms.py:16
 msgid "Date of the match"
 msgstr "Дата проведения матча"
 
-#: rooky_teams/matches/forms.py:18 rooky_teams/templates/matches/index.html:15
+#: rooky_teams/matches/forms.py:17 rooky_teams/templates/matches/index.html:15
 msgid "Team 1 goals"
 msgstr "Голы команды 1"
 
-#: rooky_teams/matches/forms.py:19 rooky_teams/templates/matches/index.html:16
+#: rooky_teams/matches/forms.py:18 rooky_teams/templates/matches/index.html:16
 msgid "Team 2 goals"
 msgstr "Голы команды 2"
 
-#: rooky_teams/matches/forms.py:20
+#: rooky_teams/matches/forms.py:19
 msgid "Notes about match"
 msgstr "Заметки о матче"
 
@@ -59,12 +59,12 @@ msgid "Last name"
 msgstr "Фамилия"
 
 #: rooky_teams/players/forms.py:20
-#: rooky_teams/templates/matches/details.html:31
-#: rooky_teams/templates/matches/details.html:54
+#: rooky_teams/templates/matches/details.html:29
+#: rooky_teams/templates/matches/details.html:52
 #: rooky_teams/templates/players/details.html:26
 #: rooky_teams/templates/players/index.html:24
-#: rooky_teams/templates/players/lineup.html:16
-#: rooky_teams/templates/players/lineup.html:47
+#: rooky_teams/templates/players/lineups.html:16
+#: rooky_teams/templates/players/lineups.html:39
 #: rooky_teams/templates/players/roster.html:15
 msgid "Role on the field"
 msgstr "Основная роль на поле"
@@ -116,41 +116,53 @@ msgstr "4 - Хорошо"
 msgid "5 - Excellent"
 msgstr "5 - Отлично"
 
-#: rooky_teams/players/views.py:55
+#: rooky_teams/players/views.py:56
 msgid "Player successfully added!"
 msgstr "Игрок успешно добавлен в базу данных."
 
-#: rooky_teams/players/views.py:63
+#: rooky_teams/players/views.py:64
 msgid "Player successfully updated!"
 msgstr "Данные игрока успешно изменены в базе данных."
 
-#: rooky_teams/players/views.py:70
+#: rooky_teams/players/views.py:71
 msgid "Player successfully deleted from database"
 msgstr "Игрок успешно удалён из базы данных."
 
-#: rooky_teams/players/views.py:75
+#: rooky_teams/players/views.py:76
 msgid "Player successfully added to the next match"
 msgstr "Игрок успешно добавлен в предстоящую игру."
 
-#: rooky_teams/players/views.py:76
+#: rooky_teams/players/views.py:77
 msgid "Error. Cannot add player to roster!"
 msgstr "Ошибка добавления игрока в предстоящую игру!"
 
-#: rooky_teams/players/views.py:88
+#: rooky_teams/players/views.py:89
 msgid "Player successfully removed from roster"
 msgstr "Игрок успешно удалён из списка на ближайшую игру."
 
-#: rooky_teams/players/views.py:89
+#: rooky_teams/players/views.py:90
 msgid "Error. Cannot remove player from roster!"
 msgstr "Ошибка удаления игрока из списка на предстоящую игру!"
 
-#: rooky_teams/players/views.py:103
+#: rooky_teams/players/views.py:104
 msgid "Roster successfully cleared"
 msgstr "Список участников ближайшей игры успешно очищен."
 
-#: rooky_teams/players/views.py:104
+#: rooky_teams/players/views.py:105
 msgid "Error. Cannot clear roster!"
 msgstr "Ошибка очистки списка участников ближайшей игры!"
+
+#: rooky_teams/players/views.py:123
+msgid "Lineups generated successfully."
+msgstr "Составы команд успешно сгенерированы."
+
+#: rooky_teams/players/views.py:125
+msgid "Unable to create teams. Add more players to the roster!"
+msgstr "Невозможно создать команды. Добавьте больше игроков в список на игру."
+
+#: rooky_teams/players/views.py:134
+msgid "Match successfully created."
+msgstr "Матч успешно создан, составы сохранены."
 
 #: rooky_teams/templates/footer.html:5
 msgid "My Github"
@@ -170,10 +182,9 @@ msgid ""
 "amateur football team lineups. Lineups depends on player's skill and his "
 "role on a field."
 msgstr ""
-"Rookie Teams - cистема автоматической генерации или ручного формирования "
-"составов команд для любительского футбола. Автоматическая генерация создаёт "
-"сбалансированные команды в зависимости от уровня мастерства игроков и их "
-"роли на поле"
+"Rookie Teams - cистема автоматической генерации составов команд для "
+"любительского футбола. Автоматическая генерация создаёт сбалансированные "
+"команды в зависимости от уровня мастерства игроков и их роли на поле."
 
 #: rooky_teams/templates/home.html:24
 msgid "Start to make teams"
@@ -202,76 +213,78 @@ msgid "Match information"
 msgstr "Информация о матче"
 
 #: rooky_teams/templates/matches/details.html:13
-msgid "Team 1 goals:"
-msgstr "Голы команды 1:"
+#: rooky_teams/templates/players/lineups.html:11
+msgid "Team 1"
+msgstr "Команда 1"
 
-#: rooky_teams/templates/matches/details.html:17
-msgid "Team 2 goals:"
-msgstr "Голы команды 2:"
+#: rooky_teams/templates/matches/details.html:15
+#: rooky_teams/templates/players/lineups.html:34
+msgid "Team 2"
+msgstr "Команда 2"
 
-#: rooky_teams/templates/matches/details.html:21
-msgid "Match notes:"
-msgstr "Заметки о матче:"
+#: rooky_teams/templates/matches/details.html:19
+msgid "Update match information"
+msgstr "Обновить информацию о матче"
 
-#: rooky_teams/templates/matches/details.html:26
+#: rooky_teams/templates/matches/details.html:20
+msgid "Delete match"
+msgstr "Удалить матч"
+
+#: rooky_teams/templates/matches/details.html:24
 msgid "Team 1 lineup"
 msgstr "Состав команды 1"
 
-#: rooky_teams/templates/matches/details.html:29
-#: rooky_teams/templates/matches/details.html:52
-#: rooky_teams/templates/players/lineup.html:14
-#: rooky_teams/templates/players/lineup.html:45
+#: rooky_teams/templates/matches/details.html:27
+#: rooky_teams/templates/matches/details.html:50
+#: rooky_teams/templates/players/lineups.html:14
+#: rooky_teams/templates/players/lineups.html:37
 #: rooky_teams/templates/players/roster.html:13
 msgid "Player name (average skill)"
 msgstr "Полное имя (средний навык)"
 
-#: rooky_teams/templates/matches/details.html:30
-#: rooky_teams/templates/matches/details.html:53
+#: rooky_teams/templates/matches/details.html:28
+#: rooky_teams/templates/matches/details.html:51
 #: rooky_teams/templates/players/index.html:22
-#: rooky_teams/templates/players/lineup.html:15
-#: rooky_teams/templates/players/lineup.html:46
+#: rooky_teams/templates/players/lineups.html:15
+#: rooky_teams/templates/players/lineups.html:38
 #: rooky_teams/templates/players/roster.html:14
 msgid "skills"
 msgstr "Навыки"
 
-#: rooky_teams/templates/matches/details.html:39
-#: rooky_teams/templates/matches/details.html:62
+#: rooky_teams/templates/matches/details.html:37
+#: rooky_teams/templates/matches/details.html:60
 #: rooky_teams/templates/players/index.html:35
-#: rooky_teams/templates/players/lineup.html:25
-#: rooky_teams/templates/players/lineup.html:56
+#: rooky_teams/templates/players/lineups.html:24
+#: rooky_teams/templates/players/lineups.html:47
 #: rooky_teams/templates/players/roster.html:26
 msgid "DEF:"
 msgstr "ЗАЩ:"
 
-#: rooky_teams/templates/matches/details.html:40
-#: rooky_teams/templates/matches/details.html:63
+#: rooky_teams/templates/matches/details.html:38
+#: rooky_teams/templates/matches/details.html:61
 #: rooky_teams/templates/players/index.html:36
-#: rooky_teams/templates/players/lineup.html:26
-#: rooky_teams/templates/players/lineup.html:57
+#: rooky_teams/templates/players/lineups.html:25
+#: rooky_teams/templates/players/lineups.html:48
 #: rooky_teams/templates/players/roster.html:27
 msgid "FRW:"
 msgstr "НАП:"
 
-#: rooky_teams/templates/matches/details.html:41
-#: rooky_teams/templates/matches/details.html:64
+#: rooky_teams/templates/matches/details.html:39
+#: rooky_teams/templates/matches/details.html:62
 #: rooky_teams/templates/players/index.html:37
-#: rooky_teams/templates/players/lineup.html:27
-#: rooky_teams/templates/players/lineup.html:58
+#: rooky_teams/templates/players/lineups.html:26
+#: rooky_teams/templates/players/lineups.html:49
 #: rooky_teams/templates/players/roster.html:28
 msgid "GK:"
 msgstr "ВР:"
 
-#: rooky_teams/templates/matches/details.html:49
+#: rooky_teams/templates/matches/details.html:47
 msgid "Team 2 lineup"
 msgstr "Состав команды 2"
 
-#: rooky_teams/templates/matches/details.html:73
-msgid "Update match information"
-msgstr "Обновить информацию о матче"
-
-#: rooky_teams/templates/matches/details.html:74
-msgid "Delete match"
-msgstr "Удалить матч"
+#: rooky_teams/templates/matches/details.html:71
+msgid "Match notes:"
+msgstr "Заметки о матче:"
 
 #: rooky_teams/templates/matches/index.html:8
 #: rooky_teams/templates/navbar.html:15
@@ -284,21 +297,26 @@ msgstr "Дата матча"
 
 #: rooky_teams/templates/matches/index.html:14
 msgid "Lineups and match information"
-msgstr "Составы и дополнительная инйормация"
+msgstr "Составы и дополнительная информация"
 
 #: rooky_teams/templates/matches/index.html:17
 #: rooky_teams/templates/players/index.html:25
-#: rooky_teams/templates/players/lineup.html:17
-#: rooky_teams/templates/players/lineup.html:48
 #: rooky_teams/templates/players/roster.html:16
 msgid "Actions"
 msgstr "Действия"
 
 #: rooky_teams/templates/matches/index.html:24
-msgid "About match"
-msgstr "О матче"
+msgid "Match details"
+msgstr "Детали матча"
 
-#: rooky_teams/templates/matches/index.html:27
+#: rooky_teams/templates/matches/index.html:28
+#: rooky_teams/templates/matches/update.html:12
+#: rooky_teams/templates/players/details.html:44
+#: rooky_teams/templates/players/index.html:52
+msgid "Update"
+msgstr "Изменить"
+
+#: rooky_teams/templates/matches/index.html:29
 #: rooky_teams/templates/players/details.html:45
 #: rooky_teams/templates/players/index.html:53
 msgid "Delete"
@@ -307,12 +325,6 @@ msgstr "Удалить"
 #: rooky_teams/templates/matches/update.html:7
 msgid "Match information updating"
 msgstr "Обновление информации о матче"
-
-#: rooky_teams/templates/matches/update.html:12
-#: rooky_teams/templates/players/details.html:44
-#: rooky_teams/templates/players/index.html:52
-msgid "Update"
-msgstr "Изменить"
 
 #: rooky_teams/templates/navbar.html:9
 #: rooky_teams/templates/players/index.html:8
@@ -379,26 +391,17 @@ msgstr "В ИГРЕ"
 msgid "Add to roster"
 msgstr "Добавить в игру"
 
-#: rooky_teams/templates/players/lineup.html:8
+#: rooky_teams/templates/players/lineups.html:8
 msgid "The proposal of the teams for the match"
 msgstr "Предложение по составам команд на матч"
 
-#: rooky_teams/templates/players/lineup.html:11
-msgid "Team 1"
-msgstr "Команда 1"
-
-#: rooky_teams/templates/players/lineup.html:33
-#: rooky_teams/templates/players/lineup.html:64
-msgid "Button"
-msgstr "Действие"
-
-#: rooky_teams/templates/players/lineup.html:42
-msgid "Team 2"
-msgstr "Команда 2"
-
-#: rooky_teams/templates/players/lineup.html:72
+#: rooky_teams/templates/players/lineups.html:57
 msgid "Generate lineups again (F5)"
 msgstr "Генерировать составы снова (F5)"
+
+#: rooky_teams/templates/players/lineups.html:61
+msgid "Save linups and create match"
+msgstr "Сохранить составы и создать матч"
 
 #: rooky_teams/templates/players/roster.html:8
 msgid "Players for the next match"
@@ -423,3 +426,6 @@ msgstr "Обновление информации об игроке"
 #: rooky_teams/templates/players/update.html:12
 msgid "Update player"
 msgstr "Обновить данные игрока"
+
+#~ msgid "Button"
+#~ msgstr "Действие"

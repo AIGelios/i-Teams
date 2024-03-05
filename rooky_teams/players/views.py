@@ -15,10 +15,11 @@ from rooky_teams.mixins import SuccessMessageMixin
 from django.shortcuts import redirect
 from django.contrib import messages
 from django.db import IntegrityError
-from .tools import generate_balanced_teams
+from .tools import generate_balanced_teams, get_team_ids_json
+from ..matches.db_queries import create_match
 
 
-SUCCESS_URL = reverse_lazy('players_index')
+PLAYERS_INDEX_URL = reverse_lazy('players_index')
 
 
 class PlayersIndexView(FilterView):
@@ -51,7 +52,7 @@ class PlayerCreateView(SuccessMessageMixin, CreateView):
     template_name = 'players/create.html'
     model = Player
     form_class = PlayerForm
-    success_url = SUCCESS_URL
+    success_url = PLAYERS_INDEX_URL
     success_message = _('Player successfully added!')
 
 
@@ -59,14 +60,14 @@ class PlayerUpdateView(SuccessMessageMixin, UpdateView):
     template_name = 'players/update.html'
     model = Player
     form_class = PlayerForm
-    success_url = SUCCESS_URL
+    success_url = PLAYERS_INDEX_URL
     success_message = _('Player successfully updated!')
 
 
 class PlayerDeleteView(SuccessMessageMixin, DeleteView):
     template_name = 'players/delete.html'
     model = Player
-    success_url = SUCCESS_URL
+    success_url = PLAYERS_INDEX_URL
     success_message = _('Player successfully deleted from database')
 
 
@@ -80,7 +81,7 @@ class AddToRosrerView(View):
             messages.success(self.request, success_message)
         except IntegrityError:
             messages.error(self.request, error_message)
-        return redirect(SUCCESS_URL)
+        return redirect(PLAYERS_INDEX_URL)
 
 
 class DeleteFromRosterView(View):
@@ -111,9 +112,31 @@ class RosterClearView(TemplateView):
 
 
 class GenerateLineupsView(TemplateView):
-    template_name = 'players/lineup.html'
+    template_name = 'players/lineups.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context.update(generate_balanced_teams())
         return context
+
+    def get(self, request, *args, **kwargs):
+        success_message = _('Lineups generated successfully.')
+        too_few_players_message = _(
+            'Unable to create teams. Add more players to the roster!')
+        context = self.get_context_data()
+        if not context['team_1'] or not context['team_2']:
+            messages.error(self.request, too_few_players_message)
+            return redirect(PLAYERS_INDEX_URL)
+        messages.success(self.request, success_message)
+        return super().get(self, request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        success_message = _('Match successfully created.')
+        context = self.get_context_data()
+        match = create_match(
+            get_team_ids_json(context['team_1']),
+            get_team_ids_json(context['team_2']),
+        )
+        messages.success(self.request, success_message)
+        return redirect(reverse_lazy(
+            'match_details', kwargs=dict(pk=match.id)))

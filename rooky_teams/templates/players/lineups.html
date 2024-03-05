@@ -14,7 +14,6 @@
                     <th>{% translate "Player name (average skill)" %}</th>
                     <th>{% translate 'skills' %}</th>
                     <th>{% translate "Role on the field" %}</th>
-                    <th>{% translate "Actions" %}</th>
                 </tr>
             </thead>
             <tbody>
@@ -27,13 +26,6 @@
                         {% translate 'GK:' %} {{ player.gk_skill }} .
                     </td>
                     <td>{{ player.role_name }}</td>
-                    <td>
-                        <form method="post">
-                            {% csrf_token %}
-                            {% translate "Button" as button_name %}
-                            {% bootstrap_button button_name button_type="submit" button_class="btn btn-primary" %}
-                        </form>
-                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -45,7 +37,6 @@
                     <th>{% translate "Player name (average skill)" %}</th>
                     <th>{% translate 'skills' %}</th>
                     <th>{% translate "Role on the field" %}</th>
-                    <th>{% translate "Actions" %}</th>
                 </tr>
             </thead>
             <tbody>
@@ -58,18 +49,18 @@
                         {% translate 'GK:' %} {{ player.gk_skill }} .
                     </td>
                     <td>{{ player.role_name }}</td>
-                    <td>
-                        <form method="post">
-                            {% csrf_token %}
-                            {% translate "Button" as button_name %}
-                            {% bootstrap_button button_name button_type="submit" button_class="btn btn-primary" %}
-                        </form>
-                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
-        <a class="btn btn-primary" href="{% url 'lineups' %}">{% translate 'Generate lineups again (F5)' %}</a>
+        <form method="post">
+            <a class="btn btn-primary" href="{% url 'lineups' %}">{% translate 'Generate lineups again (F5)' %}</a>
+            {% csrf_token %}
+            <input type="hidden" name="team_1" value="{{ team_1_ids_json }}">
+            <input type="hidden" name="team_2" value="{{ team_2_ids_json }}">
+            {% translate "Save linups and create match" as button_name %}
+            {% bootstrap_button button_name button_type="submit" button_class="btn btn-primary" %}
+        </form>
     </div>
 </main>
 {% endblock %}

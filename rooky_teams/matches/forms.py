@@ -13,7 +13,7 @@ class MatchForm(ModelForm):
             'description',
         )
         labels = dict(
-            label=_('Date of the match'),
+            match_date=_('Date of the match'),
             team_1_goals=_('Team 1 goals'),
             team_2_goals=_('Team 2 goals'),
             description=_('Notes about match'),
