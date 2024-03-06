@@ -1,5 +1,6 @@
 from django.db import models
 from ..players.db_queries import get_team_queryset
+from ..players.tools import get_team_skill
 
 
 class Match(models.Model):
@@ -15,3 +16,9 @@ class Match(models.Model):
 
     def get_team_2(self):
         return get_team_queryset(self.team_2_ids)
+
+    def get_team_1_total_skill(self):
+        return get_team_skill(self.get_team_1())
+
+    def get_team_2_total_skill(self):
+        return get_team_skill(self.get_team_2())
