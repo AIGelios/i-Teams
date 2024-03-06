@@ -16,7 +16,7 @@ from django.shortcuts import redirect
 from django.contrib import messages
 from django.db import IntegrityError
 from .tools import generate_balanced_teams, get_team_ids_json
-from ..matches.db_queries import create_match
+from ..matches.db_queries import create_match, get_player_matches
 
 
 PLAYERS_INDEX_URL = reverse_lazy('players_index')
@@ -46,6 +46,12 @@ class PlayerRosterView(ListView):
 class PlayerDetailView(DetailView):
     template_name = 'players/details.html'
     model = Player
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        id = context['player'].id
+        context['matches'] = get_player_matches(id)
+        return context
 
 
 class PlayerCreateView(SuccessMessageMixin, CreateView):

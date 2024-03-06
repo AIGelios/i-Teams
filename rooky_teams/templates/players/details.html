@@ -44,6 +44,28 @@
                     <a class="btn btn-primary mb-3" href="{% url 'player_update' player.id %}">{% translate 'Update' %}</a>
                     <a class="btn btn-primary mb-3" href="{% url 'player_delete' player.id %}">{% translate 'Delete' %}</a>
                 </div>
+                <h2 class="text-center display-5">{% translate "Player matches" %}</h2>
+                <hr>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>{% translate "Match date" %}</th>
+                            <th>{% translate "Lineups and match information" %}
+                            <th>{% translate "Team 1 goals" %}</th>
+                            <th>{% translate "Team 2 goals" %}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for match in matches %}
+                        <tr>
+                            <td>{{ match.match_date }}</td>
+                            <td><a href="{% url 'match_details' match.id %}">{% translate 'Match details' %}</a></td>
+                            <td>{{ match.team_1_goals }}</td>
+                            <td>{{ match.team_2_goals }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

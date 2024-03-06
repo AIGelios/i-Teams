@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+
 ROLES_CHOICES = (
     (1, _('Goalkeeper')),
     (2, _('Defender')),
