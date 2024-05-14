@@ -7,7 +7,7 @@ import json
 def get_team_skill(team: list) -> int:
     '''Take list with Player objects
     and return sum of players avg skill'''
-    return sum((player.avg_skill for player in team))
+    return round(sum((player.avg_skill for player in team)), 1)
 
 
 def add_player_to_weak_team(player: Player, teams: dict) -> None:
