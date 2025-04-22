@@ -119,25 +119,27 @@ class RosterClearView(TemplateView):
 
 class GenerateLineupsView(TemplateView):
     template_name = 'players/lineups.html'
-    teams = dict(team_1=[], team_2=[])
+    teams = {'team_1': [], 'team_2': []}
     
     def get(self, request, *args, **kwargs):
         success_message = _('Lineups generated successfully.')
         too_few_players_message = _(
             'Unable to create teams. Add more players to the roster!')
-        self.__class__.teams = generate_balanced_teams()
-        teams = self.__class__.teams
-        if not teams['team_1'] or not teams ['team_2']:
-            messages.error(self.request, too_few_players_message)
-            return redirect(PLAYERS_INDEX_URL)
-        messages.success(self.request, success_message)
-        return super().get(self, request, *args, **kwargs)
+        self.__class__.teams.update(generate_balanced_teams())
+        teams = self.__class__.teams.copy()
+        if teams['team_1'] and teams['team_2']:
+            messages.success(self.request, success_message)
+            return super().get(self, request, *args, **kwargs)
+        messages.error(self.request, too_few_players_message)
+        return redirect(PLAYERS_INDEX_URL)
+        
 
     def post(self, request, *args, **kwargs):
         success_message = _('Match successfully created.')
+        teams = self.__class__.teams.copy()
         match = create_match(
-            get_team_ids_json(self.__class__.teams['team_1']),
-            get_team_ids_json(self.__class__.teams['team_2']),
+            get_team_ids_json(teams['team_1']),
+            get_team_ids_json(teams['team_2']),
         )
         messages.success(self.request, success_message)
         return redirect(reverse_lazy(
