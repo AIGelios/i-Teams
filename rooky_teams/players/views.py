@@ -119,16 +119,15 @@ class RosterClearView(TemplateView):
 
 class GenerateLineupsView(TemplateView):
     template_name = 'players/lineups.html'
-    
     teams = dict()
 
     def generate_teams(self):
-        self.teams = generate_balanced_teams()
+        self.__class__.teams.update(generate_balanced_teams())
     
     def get_context_data(self, **kwargs):
-         context = super().get_context_data(**kwargs)
-         context.update(self.teams)
-         return context
+        context = super().get_context_data(**kwargs)
+        context.update(self.__class__.teams)
+        return context
 
     def get(self, request, *args, **kwargs):
         success_message = _('Lineups generated successfully.')
@@ -144,7 +143,7 @@ class GenerateLineupsView(TemplateView):
 
     def post(self, request, *args, **kwargs):
         success_message = _('Match successfully created.')
-        context = self.teams
+        context = self.get_context_data(**kwargs) | self.__class__.teams
         match = create_match(
             get_team_ids_json(context['team_1']),
             get_team_ids_json(context['team_2']),
