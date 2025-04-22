@@ -140,9 +140,10 @@ class GenerateLineupsView(TemplateView):
 
     def post(self, request, *args, **kwargs):
         success_message = _('Match successfully created.')
+        context = self.get_context_data()
         match = create_match(
-            get_team_ids_json(self.__class__.teams['team_1']),
-            get_team_ids_json(self.__class__.teams['team_2']),
+            get_team_ids_json(context['team_1']),
+            get_team_ids_json(context['team_2']),
         )
         messages.success(self.request, success_message)
         return redirect(reverse_lazy(
