@@ -144,7 +144,7 @@ class GenerateLineupsView(TemplateView):
 
     def post(self, request, *args, **kwargs):
         success_message = _('Match successfully created.')
-        context = self.get_context_data(**kwargs)
+        context = self.teams
         match = create_match(
             get_team_ids_json(context['team_1']),
             get_team_ids_json(context['team_2']),
