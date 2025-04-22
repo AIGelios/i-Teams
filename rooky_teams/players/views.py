@@ -120,15 +120,21 @@ class RosterClearView(TemplateView):
 class GenerateLineupsView(TemplateView):
     template_name = 'players/lineups.html'
     
+    teams = dict()
+
+    def generate_teams(self):
+        self.teams = generate_balanced_teams()
+    
     def get_context_data(self, **kwargs):
          context = super().get_context_data(**kwargs)
-         context.update(generate_balanced_teams())
+         context.update(self.teams)
          return context
 
     def get(self, request, *args, **kwargs):
         success_message = _('Lineups generated successfully.')
         too_few_players_message = _(
             'Unable to create teams. Add more players to the roster!')
+        self.generate_teams()
         context = self.get_context_data(**kwargs)
         if not context['team_1'] or not context['team_2']:
             messages.error(self.request, too_few_players_message)
