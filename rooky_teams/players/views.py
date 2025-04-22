@@ -120,18 +120,23 @@ class RosterClearView(TemplateView):
 class GenerateLineupsView(TemplateView):
     template_name = 'players/lineups.html'
     teams = {'team_1': [], 'team_2': []}
+
+    def get_context_data(self, **kwargs):
+         context = super().get_context_data(**kwargs)
+         context.update(self.__class__.teams)
+         return context
     
     def get(self, request, *args, **kwargs):
         success_message = _('Lineups generated successfully.')
         too_few_players_message = _(
             'Unable to create teams. Add more players to the roster!')
         self.__class__.teams.update(generate_balanced_teams())
-        if self.__class__.teams['team_1'] and self.__class__.teams['team_2']:
+        context = self.get_context_data()
+        if context['team_1'] and context['team_2']:
             messages.success(self.request, success_message)
             return super().get(self, request, *args, **kwargs)
         messages.error(self.request, too_few_players_message)
         return redirect(PLAYERS_INDEX_URL)
-        
 
     def post(self, request, *args, **kwargs):
         success_message = _('Match successfully created.')
