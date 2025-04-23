@@ -33,7 +33,7 @@ class TooFewPlayersError(Exception):
     pass
 
 
-def generate_balanced_teams(context=dict(): dict):
+def generate_balanced_teams(context=dict()):
     """Automaticaly create balanced teams from roster players and return dict:
     {'team_1': [list of Player objects], 'team_2': [list of Player objects]}"""
 
