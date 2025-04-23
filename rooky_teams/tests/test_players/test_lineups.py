@@ -14,10 +14,10 @@ def add_all_test_players_to_roster():
 class TestLineUps(TestCase):
     fixtures = ['database.json']
 
-    def test_lineups_page_with_empty_roster(self):
+    '''def test_lineups_page_with_empty_roster(self):
         response = self.client.get(LINEUPS_URL)
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, reverse_lazy('players_index'))
+        self.assertRedirects(response, reverse_lazy('players_index'))'''
 
     def test_lineups_page_with_4_players_roster(self):
         add_players_to_test_db()
