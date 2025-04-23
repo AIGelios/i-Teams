@@ -130,8 +130,8 @@ class GenerateLineupsView(TemplateView):
         success_message = _('Lineups generated successfully.')
         too_few_players_message = _(
             'Unable to create teams. Add more players to the roster!')
-        self.__class__.teams.update(generate_balanced_teams())
-        context = self.get_context_data()
+        generate_balanced_teams(self.__class__.teams)
+        context = self.get_context_data(**kwargs)
         if context['team_1'] and context['team_2']:
             messages.success(self.request, success_message)
             return super().get(self, request, *args, **kwargs)
@@ -140,7 +140,7 @@ class GenerateLineupsView(TemplateView):
 
     def post(self, request, *args, **kwargs):
         success_message = _('Match successfully created.')
-        context = self.get_context_data()
+        context = self.get_context_data(**kwargs)
         match = create_match(
             get_team_ids_json(context['team_1']),
             get_team_ids_json(context['team_2']),
