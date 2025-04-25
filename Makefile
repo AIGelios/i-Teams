@@ -38,4 +38,6 @@ loc-upd:
 loc-com:
 	django-admin compilemessages
 
-deploy: install migrate
+translate: loc-upd loc-com
+
+deploy: install migrate translate
