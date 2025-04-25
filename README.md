@@ -11,7 +11,7 @@ i-Teams - приложение для формирования сбаланси�
 [![Test Coverage](https://api.codeclimate.com/v1/badges/a6b8e58aa6182b92136a/test_coverage)](https://codeclimate.com/github/AIGelios/rookyteams/test_coverage)
 
 ### Демонстрация работы:
-https://rookieteams.onrender.com/
+https://i-teams.onrender.com/
 
 
 ### Инструменты разработки:
