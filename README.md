@@ -1,5 +1,5 @@
 # i-Teams
-![Logo](/rooky_teams/static/logo.jpg)
+![Logo](/rooky_teams/static/logo2.png)
 
 ### Описание:
 i-Teams - приложение для формирования сбалансированных составов команд для любительского футбола.
