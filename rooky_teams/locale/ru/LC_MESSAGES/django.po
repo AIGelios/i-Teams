@@ -180,11 +180,11 @@ msgstr "Генератор составов любительских футбо�
 
 #: rooky_teams/templates/home.html:23
 msgid ""
-"Rookie Teams is the system for automatical generating or manual creating of "
+"i-Teams is the system for automatical generating or manual creating of "
 "amateur football team lineups. Lineups depends on player's skill and his "
 "role on a field."
 msgstr ""
-"Rookie Teams - cистема автоматической генерации составов команд для "
+"i-Teams - cистема автоматической генерации составов команд для "
 "любительского футбола. Автоматическая генерация создаёт сбалансированные "
 "команды в зависимости от уровня мастерства игроков и их роли на поле."
 
