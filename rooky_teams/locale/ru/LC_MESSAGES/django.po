@@ -279,7 +279,7 @@ msgid "GK:"
 msgstr "ВР:"
 
 #: rooky_teams/templates/matches/details.html:47
-msgid "Team 2 lineup "
+msgid "Team 2 lineup"
 msgstr "Состав команды 2 🟡"
 
 #: rooky_teams/templates/matches/details.html:71
