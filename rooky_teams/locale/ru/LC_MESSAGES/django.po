@@ -74,17 +74,17 @@ msgstr "Основная роль на поле"
 #: rooky_teams/players/forms.py:21
 #: rooky_teams/templates/players/details.html:30
 msgid "Goalkeeper skill"
-msgstr "Навык игры на воротах"
+msgstr "Навык игры на воротах 🥅"
 
 #: rooky_teams/players/forms.py:22
 #: rooky_teams/templates/players/details.html:34
 msgid "Defender skill"
-msgstr "Навык игры в защите"
+msgstr "Навык игры в защите 🛡️"
 
 #: rooky_teams/players/forms.py:23
 #: rooky_teams/templates/players/details.html:38
 msgid "Forward skill"
-msgstr "Навык игры в нападении"
+msgstr "Навык игры в нападении 🗡️"
 
 #: rooky_teams/players/models.py:6
 msgid "Goalkeeper"
