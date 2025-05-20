@@ -27,12 +27,12 @@ msgstr "Дата проведения матча"
 #: rooky_teams/matches/forms.py:17 rooky_teams/templates/matches/index.html:15
 #: rooky_teams/templates/players/details.html:54
 msgid "Team 1 goals"
-msgstr "Голы команды 1 🟠"
+msgstr "Голы оранжевых 🟠"
 
 #: rooky_teams/matches/forms.py:18 rooky_teams/templates/matches/index.html:16
 #: rooky_teams/templates/players/details.html:55
 msgid "Team 2 goals"
-msgstr "Голы команды 2 🟡"
+msgstr "Голы жёлтых 🟡"
 
 #: rooky_teams/matches/forms.py:19
 msgid "Notes about match"
@@ -215,12 +215,12 @@ msgstr "Информация о матче"
 #: rooky_teams/templates/matches/details.html:13
 #: rooky_teams/templates/players/lineups.html:11
 msgid "Team 1"
-msgstr "Команда 1 🟠"
+msgstr "🟠 Оранжевые"
 
 #: rooky_teams/templates/matches/details.html:15
 #: rooky_teams/templates/players/lineups.html:34
 msgid "Team 2"
-msgstr "Команда 2 🟡"
+msgstr "🟡 Жёлтые"
 
 #: rooky_teams/templates/matches/details.html:19
 msgid "Update match information"
@@ -232,7 +232,7 @@ msgstr "Удалить матч"
 
 #: rooky_teams/templates/matches/details.html:24
 msgid "Team 1 lineup"
-msgstr "Состав команды 1 🟠"
+msgstr "Состав оранжевых 🟠"
 
 #: rooky_teams/templates/matches/details.html:27
 #: rooky_teams/templates/matches/details.html:50
@@ -280,7 +280,7 @@ msgstr "ВР:"
 
 #: rooky_teams/templates/matches/details.html:47
 msgid "Team 2 lineup"
-msgstr "Состав команды 2 🟡"
+msgstr "Состав жёлтых 🟡"
 
 #: rooky_teams/templates/matches/details.html:71
 msgid "Match notes:"
