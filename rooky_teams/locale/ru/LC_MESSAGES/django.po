@@ -96,7 +96,7 @@ msgstr "🛡️ Защитник"
 
 #: rooky_teams/players/models.py:8
 msgid "Forward"
-msgstr "🗡️Нападающий"
+msgstr "🗡️ Нападающий"
 
 #: rooky_teams/players/models.py:13
 msgid "1 - Very bad"
