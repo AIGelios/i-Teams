@@ -32,7 +32,7 @@
                     <tbody>
                         {% for player in match.get_team_1 %}
                         <tr>
-                            <td>{{ player }}</td>
+                            <td>🟠 {{ player }}</td>
                             <td>
                                 {% translate 'DEF:' %} {{ player.def_skill }} , 
                                 {% translate 'FRW:' %} {{ player.frw_skill }} ,
@@ -55,7 +55,7 @@
                     <tbody>
                         {% for player in match.get_team_2 %}
                         <tr>
-                            <td>{{ player }}</td>
+                            <td>🟢 {{ player }}</td>
                             <td>
                                 {% translate 'DEF:' %} {{ player.def_skill }} , 
                                 {% translate 'FRW:' %} {{ player.frw_skill }} ,
