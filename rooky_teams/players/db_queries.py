@@ -32,6 +32,6 @@ def add_player_to_team_1(id):
     Player.objects.filter(id=id).update(team=1)
 
 
-def add_player_to_team_1(id):
+def add_player_to_team_2(id):
     Player.objects.filter(id=id).update(team=2)
     
