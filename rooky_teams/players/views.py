@@ -151,8 +151,8 @@ class GenerateLineupsView(TemplateView):
 
 
 class ManualTeamsView(ListView):
-    template_name='players/manual_teams.html'
-    model=Player
+    template_name = 'players/manual_teams.html'
+    model = Player
 
     def get_queryset(self):
         return (
