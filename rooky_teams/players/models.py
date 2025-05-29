@@ -50,6 +50,7 @@ class Player(models.Model):
     team = models.SmallIntegerField(
         choices=TEAM_CHOICES,
         default=0,
+        null=0,
     )
 
     @property
