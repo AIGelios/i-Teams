@@ -9,6 +9,7 @@ from .views import (
     DeleteFromRosterView,
     RosterClearView,
     GenerateLineupsView,
+    ManualTeamsView,
 )
 from django.urls import path
 
@@ -38,5 +39,8 @@ urlpatterns = [
         'roster/clear/',
         RosterClearView.as_view(),
         name='clear_roster'),
-    path('lineups/', GenerateLineupsView.as_view(), name='lineups')
+    path('lineups/',
+         GenerateLineupsView.as_view(),
+         name='lineups'),
+    path('manual_teams/', ManualTeamsView.as_view(), name='manual_teams'),
 ]
