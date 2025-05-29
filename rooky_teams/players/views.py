@@ -8,6 +8,7 @@ from django_filters.views import FilterView
 from .models import Player
 from .db_queries import (
     add_to_roster, delete_from_roster, clear_roster,
+    add_player_to_team_1, add_player_to_team_2,
 )
 from .forms import PlayerForm
 from .filters import PlayerFilterSet
@@ -20,6 +21,7 @@ from ..matches.db_queries import create_match, get_player_matches
 
 
 PLAYERS_INDEX_URL = reverse_lazy('players_index')
+MANUAL_TEAMS_URL = reverse_lazy('manual_teams')
 
 
 class PlayersIndexView(FilterView):
@@ -160,3 +162,22 @@ class ManualTeamsView(ListView):
             .filter(is_in_roster=True)
             .order_by('team')
         )
+
+
+class AddToTeamView(View):
+    team = 0
+    def post(self, request, *args, **kwargs):
+        try:
+            player_id = kwargs.get('pk')
+            add_player_to_team(player_id, team)
+        except IntegrityError:
+            messages.error(self.request, "Error")
+        return redirect(MANUAL_TEAMS_URL)
+
+
+class AddToTeam1View(AddToTeamView):
+    team = 1
+
+
+class AddToTeam1View(AddToTeamView):
+    team = 2
