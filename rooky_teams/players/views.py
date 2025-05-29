@@ -148,3 +148,15 @@ class GenerateLineupsView(TemplateView):
         messages.success(self.request, success_message)
         return redirect(reverse_lazy(
             'match_details', kwargs=dict(pk=match.id)))
+
+
+class ManualTeamsView(ListView):
+    template_name='players/manual_teams.html'
+    model=Player
+
+    def get_queryset(self):
+        return (
+            super().get_queryset()
+            .filter(is_in_roster=True)
+            .order_by('team')
+        )
