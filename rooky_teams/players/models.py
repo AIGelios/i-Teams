@@ -17,6 +17,12 @@ SKILLS_CHOICES = (
     (5, _('5 - Excellent')),
 )
 
+TEAM_CHOICES = (
+    (0, _('No team')),
+    (1, _('Team 1')),
+    (2, _('Team 2')),
+)
+
 
 class Player(models.Model):
     first_name = models.CharField(
@@ -35,11 +41,15 @@ class Player(models.Model):
         choices=SKILLS_CHOICES,
     )
     frw_skill = models.SmallIntegerField(
-        choices=SKILLS_CHOICES
+        choices=SKILLS_CHOICES,
     )
     is_in_roster = models.BooleanField(
         default=False,
-        null=False
+        null=False,
+    )
+    team = models.SmallIntegerField(
+        choices=TEAM_CHOICES,
+        default=0,
     )
 
     @property
