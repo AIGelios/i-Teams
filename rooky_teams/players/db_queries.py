@@ -26,3 +26,12 @@ def clear_roster():
 def get_team_queryset(player_ids_json_string):
     id_list = json.loads(player_ids_json_string)
     return Player.objects.filter(id__in=id_list)
+
+
+def add_player_to_team_1(id):
+    Player.objects.filter(id=id).update(team=1)
+
+
+def add_player_to_team_1(id):
+    Player.objects.filter(id=id).update(team=2)
+    
