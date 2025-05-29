@@ -10,6 +10,8 @@ from .views import (
     RosterClearView,
     GenerateLineupsView,
     ManualTeamsView,
+    AddToTeam1View,
+    AddToTeam2View,
 )
 from django.urls import path
 
@@ -43,4 +45,13 @@ urlpatterns = [
          GenerateLineupsView.as_view(),
          name='lineups'),
     path('manual_teams/', ManualTeamsView.as_view(), name='manual_teams'),
+    path(
+        '<int:pk>/add_to_team_1/',
+        AddToTeam1View.as_view(),
+        name='add_to_team_1'),
+    path(
+        '<int:pk>/add_to_team_2/',
+        AddToTeam2View.as_view(),
+        name='add_to_team_2'),
+    
 ]
