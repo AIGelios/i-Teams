@@ -122,14 +122,6 @@ msgstr "5 - Отлично"
 msgid "No Team"
 msgstr "Не в команде"
 
-#: rooky_teams/players/models.py:22
-msgid "Team 1"
-msgstr "Оранжевые 🟠"
-
-#: rooky_teams/players/models.py:22
-msgid "Team 2"
-msgstr "Жёлтые 🟡"
-
 #: rooky_teams/players/views.py:62
 msgid "Player successfully added!"
 msgstr "Игрок успешно добавлен в базу данных."
@@ -226,11 +218,13 @@ msgstr "Информация о матче"
 
 #: rooky_teams/templates/matches/details.html:13
 #: rooky_teams/templates/players/lineups.html:11
+#: rooky_teams/players/models.py:22
 msgid "Team 1"
 msgstr "🟠 Оранжевые"
 
 #: rooky_teams/templates/matches/details.html:15
 #: rooky_teams/templates/players/lineups.html:34
+#: rooky_teams/players/models.py:22
 msgid "Team 2"
 msgstr "🟡 Жёлтые"
 
