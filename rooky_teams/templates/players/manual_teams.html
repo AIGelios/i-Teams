@@ -11,10 +11,11 @@
             <thead>
                 <tr>
                     <th>{% translate "Player name (average skill)" %}</th>
+                    <th>{% translate "Team" %}</th>
                     <th>{% translate 'skills' %}</th>
                     <th>{% translate "Role on the field" %}</th>
-                    <!-- <th>{% translate "Actions" %}</th> -->
-                    <th>{% translate "Team" %}</th>
+                    <th>{% translate "Actions" %}</th>
+                    
                 </tr>
             </thead>
             <tbody>
@@ -23,20 +24,26 @@
                     <td>
                         <a href="{% url 'player_details' player.id %}">{{ player }}</a>
                     </td>
+                    <td>{{ player.team }}</td>
                     <td>
                         {% translate 'DEF:' %} {{ player.def_skill }} , 
                         {% translate 'FRW:' %} {{ player.frw_skill }} ,
                         {% translate 'GK:' %} {{ player.gk_skill }} .
                     </td>
                     <td>{{ player.role_name }}</td>
-                    <!-- <td>
-                        <form action='{% url "delete_from_roster" player.id %}' method="post">
+                    <td>
+                        <form action='{% url "add_to_team_1" player.id %}' method="post">
                             {% csrf_token %}
-                            {% translate "Remove from roster" as button_name %}
+                            {% translate "Add to team 1" as button_name %}
                             {% bootstrap_button button_name button_type="submit" button_class="btn btn-primary" %}
                         </form>
-                    </td> -->
-                    <td>{{ player.team }}</td>
+                        <form action='{% url "add_to_team_2" player.id %}' method="post">
+                            {% csrf_token %}
+                            {% translate "Add to team 2" as button_name %}
+                            {% bootstrap_button button_name button_type="submit" button_class="btn btn-primary" %}
+                        </form>
+                    </td>
+                    
                 </tr>
                 {% endfor %}
             </tbody>
