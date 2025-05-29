@@ -179,5 +179,5 @@ class AddToTeam1View(AddToTeamView):
     team = 1
 
 
-class AddToTeam1View(AddToTeamView):
+class AddToTeam2View(AddToTeamView):
     team = 2
