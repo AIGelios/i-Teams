@@ -48,7 +48,6 @@
             {% translate "Save match" as button_name %}
             {% bootstrap_button button_name button_type="submit" button_class="btn btn-primary" %}
         </form>
-        <a class="btn btn-primary" href="{% url 'match_create_manually' %}">{% translate 'Create match' %}</a>
         <a class="btn btn-danger" href="{% url 'clear_roster' %}">{% translate 'Clear roster' %}</a>
     </div>
 </main>
