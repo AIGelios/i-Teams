@@ -1,4 +1,5 @@
 from .models import Match
+from ..players/models import Player
 import datetime
 import json
 
@@ -10,6 +11,12 @@ def create_match(team_1_json, team_2_json):
         match_date=datetime.date.today(),
         description='',
     )
+
+
+def create_match_manually(team_1, team_2):
+    team_1_json = json.dumps([x.id for x in Player.objects.filter(team=1)])
+    team_2_json = json.dumps([x.id for x in Player.objects.filter(team=2)])
+    return create_match(team_1_json, team_2_json)
 
 
 def get_player_matches(player_id):
