@@ -43,11 +43,6 @@
                 {% endfor %}
             </tbody>
         </table>
-        <form action="{% url 'match_create_manually' %}" method="post">
-            {% csrf_token %}
-            {% translate 'Create match' %}
-            {% bootstrap_button button_name button_type="submit" button_class="btn btn-primary" %}
-        </form>
         <a class="btn btn-primary" href="{% url 'match_create_manually' %}">{% translate 'Create match' %}</a>
         <a class="btn btn-danger" href="{% url 'clear_roster' %}">{% translate 'Clear roster' %}</a>
     </div>
