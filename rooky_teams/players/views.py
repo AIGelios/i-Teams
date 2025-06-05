@@ -8,7 +8,7 @@ from django_filters.views import FilterView
 from .models import Player
 from .db_queries import (
     add_to_roster, delete_from_roster, clear_roster,
-    add_player_to_team,
+    add_player_to_team, change_team,
 )
 from .forms import PlayerForm
 from .filters import PlayerFilterSet
@@ -181,3 +181,13 @@ class AddToTeam1View(AddToTeamView):
 
 class AddToTeam2View(AddToTeamView):
     team = 2
+
+
+class ChangePlayerTeamView(View):
+    def post(self, request, *args, **kwargs):
+        try:
+            player_id = kwargs.get('pk')
+            change_team(player_id)
+        except IntegrityError:
+            messages.error(self.request, "Error")
+        return redirect(MANUAL_TEAMS_URL)
