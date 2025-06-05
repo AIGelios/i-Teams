@@ -12,6 +12,7 @@ def add_to_roster(id):
 
 def delete_from_roster(id):
     Player.objects.filter(id=id).update(is_in_roster=False)
+    Player.objects.filter(id=id).update(team=0)
 
 
 def clear_roster():
