@@ -14,8 +14,8 @@ def create_match(team_1_json, team_2_json):
 
 
 def create_match_manually():
-    team_1_json = json.dumps([x.id for x in Player.objects.filter(team=1)])
-    team_2_json = json.dumps([x.id for x in Player.objects.filter(team=2)])
+    team_1_json = json.dumps([x.id for x in Player.objects.filter(in_roster=True, team=1)])
+    team_2_json = json.dumps([x.id for x in Player.objects.filter(in_roster=True, team=2)])
     return create_match(team_1_json, team_2_json)
 
 
