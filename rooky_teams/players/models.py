@@ -69,5 +69,9 @@ class Player(models.Model):
     def full_name(self):
         return f'{self.first_name} {self.last_name}'
 
+    @property
+    def team_name(self):
+        return dict(TEAM_CHOICES)[self.team]
+        
     def __str__(self):
         return f'{self.full_name} ({self.avg_skill})'
