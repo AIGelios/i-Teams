@@ -48,14 +48,6 @@ urlpatterns = [
         ManualTeamsView.as_view(),
         name='manual_teams'),
     path(
-        '<int:pk>/add_to_team_1/',
-        AddToTeam1View.as_view(),
-        name='add_to_team_1'),
-    path(
-        '<int:pk>/add_to_team_2/',
-        AddToTeam2View.as_view(),
-        name='add_to_team_2'),
-    path(
         '<int:pk>/change_team/',
         ChangePlayerTeamView.as_view(),
         name='change_team'),
