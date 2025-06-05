@@ -150,18 +150,6 @@ class GenerateLineupsView(TemplateView):
         messages.success(self.request, success_message)
         return redirect(reverse_lazy(
             'match_details', kwargs=dict(pk=match.id)))
-
-
-class MatchCreateManuallyView(View):
-    def post(self, request, *args, **kwargs):
-        success_message = _('Match successfully created.')
-        match = create_match(
-            get_team_ids_json(Player.objects.filter(in_roster=True).filter(team=1)),
-            get_team_ids_json(Player.objects.filter(in_roster=True).filter(team=2))
-        )
-        messages.success(self.request, success_message)
-        return redirect(reverse_lazy(
-            'match_details', kwargs=dict(pk=match.id)))
         
 
 class ManualTeamsView(ListView):
@@ -175,24 +163,15 @@ class ManualTeamsView(ListView):
             .order_by('team')
         )
 
-
-class AddToTeamView(View):
-    team = 0
     def post(self, request, *args, **kwargs):
-        try:
-            player_id = kwargs.get('pk')
-            add_player_to_team(player_id, self.team)
-        except IntegrityError:
-            messages.error(self.request, "Error")
-        return redirect(MANUAL_TEAMS_URL)
-
-
-class AddToTeam1View(AddToTeamView):
-    team = 1
-
-
-class AddToTeam2View(AddToTeamView):
-    team = 2
+        success_message = _('Match successfully created.')
+        match = create_match(
+            get_team_ids_json(Player.objects.filter(in_roster=True).filter(team=1)),
+            get_team_ids_json(Player.objects.filter(in_roster=True).filter(team=2))
+        )
+        messages.success(self.request, success_message)
+        return redirect(reverse_lazy(
+            'match_details', kwargs=dict(pk=match.id)))
 
 
 class ChangePlayerTeamView(View):
