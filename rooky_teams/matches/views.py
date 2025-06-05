@@ -1,7 +1,9 @@
 from django.views.generic import (
-    ListView, UpdateView, DeleteView, DetailView,
+    ListView, UpdateView, DeleteView,
+    DetailView, View,
 )
 from .models import Match
+from .db_queries import create_match_manually
 from ..mixins import SuccessMessageMixin
 from .forms import MatchForm
 from django.urls import reverse_lazy
@@ -41,3 +43,12 @@ class MatchDeleteView(SuccessMessageMixin, DeleteView):
     model = Match
     success_url = MATCHES_INDEX_URL
     success_message = _('Match deleted sucessfully.')
+
+
+class MatchCreateManuallyView(View):
+    def post(self, request, *args, **kwargs):
+        success_message = _('Match successfully created.')
+        match = create_match_manually()
+        messages.success(self.request, success_message)
+        return redirect(reverse_lazy(
+            'match_details', kwargs=dict(pk=match.id)))
