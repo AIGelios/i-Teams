@@ -43,12 +43,3 @@ class MatchDeleteView(SuccessMessageMixin, DeleteView):
     model = Match
     success_url = MATCHES_INDEX_URL
     success_message = _('Match deleted sucessfully.')
-
-
-class MatchCreateManuallyView(View):
-    def post(self, request, *args, **kwargs):
-        success_message = _('Match successfully created.')
-        match = create_match_manually()
-        messages.success(self.request, success_message)
-        return redirect(reverse_lazy(
-            'match_details', kwargs=dict(pk=match.id)))
