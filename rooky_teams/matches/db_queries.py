@@ -1,5 +1,5 @@
 from .models import Match
-from ..players/models import Player
+from ..players.models import Player
 import datetime
 import json
 
