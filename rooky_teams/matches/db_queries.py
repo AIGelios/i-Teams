@@ -13,7 +13,7 @@ def create_match(team_1_json, team_2_json):
     )
 
 
-def create_match_manually(team_1, team_2):
+def create_match_manually():
     team_1_json = json.dumps([x.id for x in Player.objects.filter(team=1)])
     team_2_json = json.dumps([x.id for x in Player.objects.filter(team=2)])
     return create_match(team_1_json, team_2_json)
