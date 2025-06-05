@@ -456,5 +456,9 @@ msgstr "Сменить команду"
 msgid "Create match"
 msgstr "Создать матч с текущими командами"
 
+#: rooky_teams/templates/players/roster.html:43
+msgid "Create teams manually"
+msgstr "Создать команды вручную"
+
 #~ msgid "Button"
 #~ msgstr "Действие"
