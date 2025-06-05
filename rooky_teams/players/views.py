@@ -166,8 +166,8 @@ class ManualTeamsView(ListView):
     def post(self, request, *args, **kwargs):
         success_message = _('Match successfully created.')
         match = create_match(
-            get_team_ids_json(Player.objects.filter(in_roster=True).filter(team=1)),
-            get_team_ids_json(Player.objects.filter(in_roster=True).filter(team=2))
+            get_team_ids_json(self.get_queryset().filter(team=1)),
+            get_team_ids_json(self.get_queryset().filter(team=2)),
         )
         messages.success(self.request, success_message)
         return redirect(reverse_lazy(
