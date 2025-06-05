@@ -10,7 +10,6 @@ from .views import (
     RosterClearView,
     GenerateLineupsView,
     ManualTeamsView,
-    MatchCreateManuallyView,
     AddToTeam1View,
     AddToTeam2View,
     ChangePlayerTeamView,
