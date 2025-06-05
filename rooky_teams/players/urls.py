@@ -10,8 +10,6 @@ from .views import (
     RosterClearView,
     GenerateLineupsView,
     ManualTeamsView,
-    AddToTeam1View,
-    AddToTeam2View,
     ChangePlayerTeamView,
 )
 from django.urls import path
