@@ -55,7 +55,7 @@
                 {% endfor %}
             </tbody>
         </table>
-        <form action='{% url 'match_create_manually' %}' method="post">
+        <form action='{% url "match_create_manually" %}' method="post">
             {% csrf_token %}
             {% translate 'Create match' %}
             {% bootstrap_button button_name button_type="submit" button_class="btn btn-primary" %}
