@@ -449,6 +449,8 @@ msgid "Add to team 2"
 msgstr "Добавить в жёлтую команду 🟡"
 
 #: rooky_teams/templates/platers/manual_teams.html:37
+msgid "Change team"
+msgstr "Сменить команду"
 
 #~ msgid "Button"
 #~ msgstr "Действие"
