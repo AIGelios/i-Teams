@@ -460,5 +460,9 @@ msgstr "Создать матч с текущими командами"
 msgid "Create teams manually"
 msgstr "Создать команды вручную"
 
+#: rooky_teams/templates/manual_teams.html:8
+msgid "Manual team creation"
+msgstr "Ручное создание команд"
+
 #~ msgid "Button"
 #~ msgstr "Действие"
