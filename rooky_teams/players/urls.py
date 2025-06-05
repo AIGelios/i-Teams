@@ -47,7 +47,6 @@ urlpatterns = [
          GenerateLineupsView.as_view(),
          name='lineups'),
     path('manual_teams/', ManualTeamsView.as_view(), name='manual_teams'),
-    path('manual_teams/save/', MatchCreateManuallyView.as_view(), name='save_match'),
     path(
         '<int:pk>/add_to_team_1/',
         AddToTeam1View.as_view(),
