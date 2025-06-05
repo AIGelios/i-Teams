@@ -440,13 +440,15 @@ msgstr "Обновление информации об игроке"
 msgid "Update player"
 msgstr "Обновить данные игрока"
 
-#: rooky_teams/templates/platers/manual_teams.html:37
+#: rooky_teams/templates/platers/manual_teams.html:42
 msgid "Add to team 1"
 msgstr "Добавить в оранжевую команду 🟠"
 
-#: rooky_teams/templates/platers/manual_teams.html:42
+#: rooky_teams/templates/platers/manual_teams.html:47
 msgid "Add to team 2"
 msgstr "Добавить в жёлтую команду 🟡"
+
+#: rooky_teams/templates/platers/manual_teams.html:37
 
 #~ msgid "Button"
 #~ msgstr "Действие"
