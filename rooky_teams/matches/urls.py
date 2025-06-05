@@ -3,7 +3,6 @@ from .views import (
     MatchDetailsView,
     MatchDeleteView,
     MatchUpdateView,
-    MatchCreateManuallyView,
 )
 from django.urls import path
 
@@ -13,5 +12,4 @@ urlpatterns = [
     path('<int:pk>/details', MatchDetailsView.as_view(), name='match_details'),
     path('<int:pk>/delete', MatchDeleteView.as_view(), name='match_delete'),
     path('<int:pk>/update', MatchUpdateView.as_view(), name='match_update'),
-    path('create/', MatchCreateManuallyView.as_view(), name='match_create_manually'),
 ]
