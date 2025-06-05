@@ -32,6 +32,12 @@
                     </td>
                     <td>{{ player.role_name }}</td>
                     <td>
+                        <form action='{% url "change_team" player.id %}' method="post">
+                            {% csrf_token %}
+                            {% translate "Change team" as button_name %}
+                            {% bootstrap_button button_name button_type="submit" button_class="btn btn-primary" %}
+                        </form>
+                        <!--
                         <form action='{% url "add_to_team_1" player.id %}' method="post">
                             {% csrf_token %}
                             {% translate "Add to team 1" as button_name %}
@@ -42,6 +48,7 @@
                             {% translate "Add to team 2" as button_name %}
                             {% bootstrap_button button_name button_type="submit" button_class="btn btn-primary" %}
                         </form>
+                        -->
                     </td>
                     
                 </tr>
