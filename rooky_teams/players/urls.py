@@ -12,6 +12,7 @@ from .views import (
     ManualTeamsView,
     AddToTeam1View,
     AddToTeam2View,
+    ChangePlayerTeamView,
 )
 from django.urls import path
 
@@ -53,5 +54,8 @@ urlpatterns = [
         '<int:pk>/add_to_team_2/',
         AddToTeam2View.as_view(),
         name='add_to_team_2'),
-    
+    path(
+        '<int:pk>/change_team/',
+        ChangePlayerTeamView.as_view(),
+        name='change_team'),
 ]
