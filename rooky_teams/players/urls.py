@@ -46,7 +46,10 @@ urlpatterns = [
     path('lineups/',
          GenerateLineupsView.as_view(),
          name='lineups'),
-    path('manual_teams/', ManualTeamsView.as_view(), name='manual_teams'),
+    path(
+        'manual_teams/',
+        ManualTeamsView.as_view(),
+        name='manual_teams'),
     path(
         '<int:pk>/add_to_team_1/',
         AddToTeam1View.as_view(),
