@@ -169,7 +169,7 @@ class AddToTeamView(View):
     def post(self, request, *args, **kwargs):
         try:
             player_id = kwargs.get('pk')
-            add_player_to_team(player_id, team)
+            add_player_to_team(player_id, self.team)
         except IntegrityError:
             messages.error(self.request, "Error")
         return redirect(MANUAL_TEAMS_URL)
