@@ -31,7 +31,7 @@ def get_team_queryset(player_ids_json_string):
 def add_player_to_team(id, team_number):
     Player.objects.filter(id=id).update(team=team_number)
 
+
 def change_team(id):
-    player = Player.objects.filter(id=id)
-    team_number = 1 if player.team in (0, 2) else 2
-    player.update(team=team_number)
+    team_number = 1 if Player.objects.filter(id=id)[0].team in (0, 2) else 2
+    Player.objects.filter(id=id).update(team=team_number)
