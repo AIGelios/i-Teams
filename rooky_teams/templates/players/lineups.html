@@ -58,7 +58,7 @@
             {% csrf_token %}
             <input type="hidden" name="team_1" value="{{ team_1_ids_json }}">
             <input type="hidden" name="team_2" value="{{ team_2_ids_json }}">
-            {% translate "Save linups and create match" as button_name %}
+            {% translate "Save lineups and create match" as button_name %}
             {% bootstrap_button button_name button_type="submit" button_class="btn btn-primary" %}
         </form>
     </div>
