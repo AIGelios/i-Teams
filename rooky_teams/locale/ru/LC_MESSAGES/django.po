@@ -406,7 +406,7 @@ msgstr "Добавить в игру"
 
 #: rooky_teams/templates/players/lineups.html:8
 msgid "The proposal of the teams for the match"
-msgstr "Предложение по составам команд на матч"
+msgstr "Автоматически сгенерированные составы команд"
 
 #: rooky_teams/templates/players/lineups.html:57
 msgid "Generate lineups again (F5)"
