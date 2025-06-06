@@ -13,16 +13,6 @@ def create_match(team_1_json, team_2_json):
     )
 
 
-def create_match_manually():
-    team_1_json = json.dumps(
-        [x.id for x in Player.objects.filter(in_roster=True).filter(team=1)]
-    )
-    team_2_json = json.dumps(
-        [x.id for x in Player.objects.filter(in_roster=True).filter(team=1)]
-    )
-    return create_match(team_1_json, team_2_json)
-
-
 def get_player_matches(player_id):
     all_matches = Match.objects.all().order_by('-match_date')
     player_matches = []
