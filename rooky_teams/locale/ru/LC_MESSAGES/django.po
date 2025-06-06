@@ -413,7 +413,7 @@ msgid "Generate lineups again (F5)"
 msgstr "Генерировать составы снова (F5)"
 
 #: rooky_teams/templates/players/lineups.html:61
-msgid "Save linups and create match"
+msgid "Save lineups and create match"
 msgstr "Сохранить составы и создать матч"
 
 #: rooky_teams/templates/players/roster.html:8
