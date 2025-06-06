@@ -120,7 +120,7 @@ class RosterClearView(TemplateView):
 
 
 class GenerateLineupsView(TemplateView):
-    template_name = 'players/lineups.html'
+    template_name = 'players/teams_auto.html'
     teams = {'team_1': [], 'team_2': []}
 
     def get_context_data(self, **kwargs):
