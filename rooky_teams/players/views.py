@@ -7,8 +7,8 @@ from django.views.generic import (
 from django_filters.views import FilterView
 from .models import Player
 from .db_queries import (
-    add_to_roster, delete_from_roster, clear_roster,
-    add_player_to_team, change_team,
+    add_to_roster, delete_from_roster,
+    clear_roster, change_team,
 )
 from .forms import PlayerForm
 from .filters import PlayerFilterSet
