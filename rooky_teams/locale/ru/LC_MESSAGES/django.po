@@ -453,7 +453,7 @@ msgid "Change team"
 msgstr "Сменить команду"
 
 #: rooky_teams/templates/manual_teams.html:58
-msgid "Create match"
+msgid "Save match"
 msgstr "Создать матч с текущими командами"
 
 #: rooky_teams/templates/players/roster.html:43
