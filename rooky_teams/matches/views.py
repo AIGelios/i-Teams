@@ -3,7 +3,6 @@ from django.views.generic import (
     DetailView, View,
 )
 from .models import Match
-from .db_queries import create_match_manually
 from ..mixins import SuccessMessageMixin
 from .forms import MatchForm
 from django.urls import reverse_lazy
