@@ -187,9 +187,11 @@ class ChangePlayerTeamView(View):
 class AutoTeamsV2View(View):
     def post(self, request, *args, **kwargs):
         success_message = _('Lineups generated successfully.')
+        ''' 
         try:
             generate_balanced_teams_v2()
         except IntegrityError:
             messages.error(self.request, "Error")
         messages.success(self.request, success_message)
+        '''
         return redirect(MANUAL_TEAMS_URL)
