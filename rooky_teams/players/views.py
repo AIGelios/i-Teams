@@ -16,7 +16,7 @@ from rooky_teams.mixins import SuccessMessageMixin
 from django.shortcuts import redirect
 from django.contrib import messages
 from django.db import IntegrityError
-from .tools import generate_balanced_teams, get_team_ids_json
+from .tools import generate_balanced_teams, get_team_ids_json, generate_balanced_teams_v2
 from ..matches.db_queries import create_match, get_player_matches
 
 
@@ -186,4 +186,10 @@ class ChangePlayerTeamView(View):
 
 class AutoTeamsV2View(View):
     def post(self, request, *args, **kwargs):
-        pass
+        success_message = _('Lineups generated successfully.')
+        try:
+            generate_balanced_teams_v2()
+        except IntegrityError:
+            messages.error(self.request, "Error")
+        messages.success(self.request, success_message)
+        return redirect(MANUAL_TEAMS_URL)
