@@ -11,6 +11,7 @@ from .views import (
     GenerateLineupsView,
     ManualTeamsView,
     ChangePlayerTeamView,
+    AutoTeamsV2View,
 )
 from django.urls import path
 
@@ -51,4 +52,7 @@ urlpatterns = [
         '<int:pk>/change_team/',
         ChangePlayerTeamView.as_view(),
         name='change_team'),
+    path('auto_teams/',
+         AutoTeamsV2View.as_view(),
+         name='auto_teams'),
 ]
