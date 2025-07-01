@@ -34,5 +34,5 @@ def change_team(id):
     Player.objects.filter(id=id).update(team=team_number)
 
 
-def add_to_team_1(id, team_num):
+def add_to_team(id, team_num):
     Player.objects.get(id=id).update(team=team_num)    
