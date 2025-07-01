@@ -182,3 +182,8 @@ class ChangePlayerTeamView(View):
         except IntegrityError:
             messages.error(self.request, "Error")
         return redirect(MANUAL_TEAMS_URL)
+
+
+class AutoTeamsV2View(View):
+    def post(self, request, *args, **kwargs):
+        pass
