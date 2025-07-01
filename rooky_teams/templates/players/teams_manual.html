@@ -43,18 +43,19 @@
                 {% endfor %}
             </tbody>
         </table>
-        <form action='{% url "manual_teams" %}' method="post">
-            {% csrf_token %}
-            {% translate "Save match" as button_name %}
-            {% bootstrap_button button_name button_type="submit" button_class="btn btn-primary" %}
+        <nobr>
+            <form action='{% url "manual_teams" %}' method="post">
+                {% csrf_token %}
+                {% translate "Save match" as button_name %}
+                {% bootstrap_button button_name button_type="submit" button_class="btn btn-primary" %} 
+            </form>
+            <form action='{% url "auto_teams" %}' method="post">
+                {% csrf_token %}
+                {% translate "New auto teams generation" as button_name %}
+                {% bootstrap_button button_name button_type="submit" button_class="btn btn-primary" %}
+            </form>
             <a class="btn btn-danger" href="{% url 'clear_roster' %}">{% translate 'Clear roster' %}</a>
-        </form>
-        <form action='{% url "auto_teams" %}' method="post">
-            {% csrf_token %}
-            {% translate "New auto teams generation" as button_name %}
-            {% bootstrap_button button_name button_type="submit" button_class="btn btn-primary" %}
-        </form>
-        
+        </nobr>
     </div>
 </main>
 {% endblock %}
