@@ -121,9 +121,4 @@ def generate_balanced_teams_v2():
         player.update(team=1)
     for player in teams['team2']:
         player.update(team=2)
-        
-    
-    
-    
-    
     
