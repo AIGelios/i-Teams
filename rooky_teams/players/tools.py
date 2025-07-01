@@ -76,3 +76,10 @@ def generate_balanced_teams(context=dict()):
         add_player_to_weak_team(best_defender, teams)
     context.update(teams)    
     return teams
+
+
+def generate_balanced_teams_v2():
+    teams = {'team_1': [], 'team_2': []}
+    roster = list(get_roster_queryset())
+    random.shuffle(roster)
+    
