@@ -15,9 +15,13 @@ def delete_from_roster(id):
         is_in_roster=False, team=0)
     
 
+def unteam_all():
+    Player.objects.all().update(team=0)
+
+
 def clear_roster():
-    Player.objects.filter(is_in_roster=True).update(
-        is_in_roster=False, team=0)
+    unteam_all()
+    Player.objects.all().update(is_in_roster=False)
 
 
 def get_team_queryset(player_ids_json_string):
