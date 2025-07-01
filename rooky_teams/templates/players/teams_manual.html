@@ -49,6 +49,12 @@
             {% bootstrap_button button_name button_type="submit" button_class="btn btn-primary" %}
             <a class="btn btn-danger" href="{% url 'clear_roster' %}">{% translate 'Clear roster' %}</a>
         </form>
+        <form action='{% url "auto_teams" %}' method="post">
+            {% csrf_token %}
+            {% translate "New auto teams generation" as button_name %}
+            {% bootstrap_button button_name button_type="submit" button_class="btn btn-primary" %}
+        </form>
+        
     </div>
 </main>
 {% endblock %}
