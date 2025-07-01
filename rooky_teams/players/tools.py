@@ -115,9 +115,3 @@ def generate_balanced_teams_v2():
         defenders.remove(best_defender)
         roster.remove(best_defender)
         add_player_to_weak_team(best_defender, teams)
-
-    for player in teams['team_1']:
-        player.update(team=1)
-    for player in teams['team_2']:
-        player.update(team=2)
-    
