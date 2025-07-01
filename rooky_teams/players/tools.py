@@ -79,7 +79,6 @@ def generate_balanced_teams(context=dict()):
 
 
 def generate_balanced_teams_v2():
-    unteam_all()
     teams = {'team_1': [], 'team_2': []}
     roster = list(get_roster_queryset())
 
@@ -117,8 +116,8 @@ def generate_balanced_teams_v2():
         roster.remove(best_defender)
         add_player_to_weak_team(best_defender, teams)
 
-    for player in teams['team1']:
+    for player in teams['team_1']:
         player.update(team=1)
-    for player in teams['team2']:
+    for player in teams['team_2']:
         player.update(team=2)
     
