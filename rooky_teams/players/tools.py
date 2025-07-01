@@ -1,5 +1,5 @@
 import random
-from .db_queries import get_roster_queryset, unteam_all, get_team
+from .db_queries import get_roster_queryset, unteam_all
 from .models import Player
 import json
 
