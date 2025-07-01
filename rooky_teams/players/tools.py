@@ -1,5 +1,5 @@
 import random
-from .db_queries import get_roster_queryset
+from .db_queries import get_roster_queryset, unteam_all, get_team
 from .models import Player
 import json
 
@@ -79,7 +79,51 @@ def generate_balanced_teams(context=dict()):
 
 
 def generate_balanced_teams_v2():
+    unteam_all()
     teams = {'team_1': [], 'team_2': []}
     roster = list(get_roster_queryset())
+
+    if len(roster) < 2:
+        return teams
+
     random.shuffle(roster)
+    
+    # goalkeepers division
+    teams_list = random.shuffle([teams['team_1'], teams['team_2']])
+    for team in teams_list:
+        best_goalkeeper = max(roster, key=lambda x: x.gk_skill)
+        roster.remove(best_goalkeeper)
+        team.append(best_goalkeeper)
+
+    # forwards division
+    forwards = [player for player in roster if player.role == 3]
+    while forwards:
+        max_skill = max([player.frw_skill for player in forwards])
+        best_forward = random.choice(
+            [player for player in forwards if player.frw_skill == max_skill]
+        )
+        forwards.remove(best_forward)
+        roster.remove(best_forward)
+        add_player_to_weak_team(best_forward, teams)
+    
+    # defenders division:
+    defenders = [player for player in roster if player.role in (1, 2)]
+    while defenders:
+        max_skill = max([player.def_skill for player in defenders])
+        best_defender = random.choice(
+            [player for player in defenders if player.def_skill == max_skill]
+        )
+        defenders.remove(best_defender)
+        roster.remove(best_defender)
+        add_player_to_weak_team(best_defender, teams)
+
+    for player in teams['team1']:
+        player.update(team=1)
+    for player in teams['team2']:
+        player.update(team=2)
+        
+    
+    
+    
+    
     
