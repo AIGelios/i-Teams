@@ -32,3 +32,8 @@ def get_team_queryset(player_ids_json_string):
 def change_team(id):
     team_number = 1 if Player.objects.filter(id=id)[0].team in (0, 2) else 2
     Player.objects.filter(id=id).update(team=team_number)
+
+
+def get_team(team_number):
+    return list(Player.objects.filter(team=team_number))
+    
